@@ -1,11 +1,28 @@
+using Microsoft.EntityFrameworkCore;
+using POS_WebAPI.DataContext;
+using POS_WebAPI.Interface.Product;
+using POS_WebAPI.Models.EntityModel;
+using POS_WebAPI.Repository;
+using POS_WebAPI.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+
+builder.Services.AddDbContext<PosContext>(opt =>
+{
+    opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+});
+
+//builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+builder.Services.AddScoped<IRepository<Product>, Repository<Product>>();
+
+builder.Services.AddScoped<IProductService, ProductService>();
 
 var app = builder.Build();
 
