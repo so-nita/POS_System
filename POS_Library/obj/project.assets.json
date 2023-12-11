@@ -8,19 +8,19 @@
     "net8.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Back-End.07\\.nuget\\packages\\": {}
+    "C:\\Users\\front-end.04\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Work\\Project\\POS_System\\POS_Library\\POS_Library.csproj",
+      "projectUniqueName": "E:\\WindowForm\\POS_System\\POS_Library\\POS_Library.csproj",
       "projectName": "POS_Library",
-      "projectPath": "D:\\Work\\Project\\POS_System\\POS_Library\\POS_Library.csproj",
-      "packagesPath": "C:\\Users\\Back-End.07\\.nuget\\packages\\",
-      "outputPath": "D:\\Work\\Project\\POS_System\\POS_Library\\obj\\",
+      "projectPath": "E:\\WindowForm\\POS_System\\POS_Library\\POS_Library.csproj",
+      "packagesPath": "C:\\Users\\front-end.04\\.nuget\\packages\\",
+      "outputPath": "E:\\WindowForm\\POS_System\\POS_Library\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Back-End.07\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\front-end.04\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -56,12 +56,7 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "frameworkReferences": {
-          "Microsoft.NETCore.App": {
-            "privateAssets": "all"
-          }
-        },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
       }
     }
   }

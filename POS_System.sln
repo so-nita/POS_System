@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34316.72
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "POS_Library", "POS_Library\POS_Library.csproj", "{671E0095-5C4E-4A1A-BA19-59E63B7E1671}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "POS_Library", "POS_Library\POS_Library.csproj", "{671E0095-5C4E-4A1A-BA19-59E63B7E1671}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "POS_WebAPI", "POS_WebAPI\POS_WebAPI.csproj", "{75DFDFA5-0D9A-45A4-BB4A-A07F3E52951E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "POS_WebAPI", "POS_WebAPI\POS_WebAPI.csproj", "{75DFDFA5-0D9A-45A4-BB4A-A07F3E52951E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogInForm", "..\LogInForm\LogInForm\LogInForm.csproj", "{2FD7351C-D2F7-419B-B0BD-81CE2350D96C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{75DFDFA5-0D9A-45A4-BB4A-A07F3E52951E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{75DFDFA5-0D9A-45A4-BB4A-A07F3E52951E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{75DFDFA5-0D9A-45A4-BB4A-A07F3E52951E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FD7351C-D2F7-419B-B0BD-81CE2350D96C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FD7351C-D2F7-419B-B0BD-81CE2350D96C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FD7351C-D2F7-419B-B0BD-81CE2350D96C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FD7351C-D2F7-419B-B0BD-81CE2350D96C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

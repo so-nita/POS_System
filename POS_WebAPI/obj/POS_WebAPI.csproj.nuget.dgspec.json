@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Work\\Project\\POS_System\\POS_WebAPI\\POS_WebAPI.csproj": {}
+    "E:\\WindowForm\\POS_System\\POS_WebAPI\\POS_WebAPI.csproj": {}
   },
   "projects": {
-    "D:\\Work\\Project\\POS_System\\POS_WebAPI\\POS_WebAPI.csproj": {
+    "E:\\WindowForm\\POS_System\\POS_WebAPI\\POS_WebAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Work\\Project\\POS_System\\POS_WebAPI\\POS_WebAPI.csproj",
+        "projectUniqueName": "E:\\WindowForm\\POS_System\\POS_WebAPI\\POS_WebAPI.csproj",
         "projectName": "POS_WebAPI",
-        "projectPath": "D:\\Work\\Project\\POS_System\\POS_WebAPI\\POS_WebAPI.csproj",
-        "packagesPath": "C:\\Users\\Back-End.07\\.nuget\\packages\\",
-        "outputPath": "D:\\Work\\Project\\POS_System\\POS_WebAPI\\obj\\",
+        "projectPath": "E:\\WindowForm\\POS_System\\POS_WebAPI\\POS_WebAPI.csproj",
+        "packagesPath": "C:\\Users\\front-end.04\\.nuget\\packages\\",
+        "outputPath": "E:\\WindowForm\\POS_System\\POS_WebAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Back-End.07\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\front-end.04\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -39,12 +39,6 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "dependencies": {
-            "Swashbuckle.AspNetCore": {
-              "target": "Package",
-              "version": "[6.4.0, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",
@@ -56,15 +50,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
         }
       }
     }
