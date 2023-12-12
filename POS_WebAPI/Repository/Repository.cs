@@ -50,9 +50,9 @@ namespace POS_WebAPI.Repository
         {
             _context.Set<TE>().RemoveRange(entities);
         }
-        public void SaveChanges()
+        public int SaveChanges()
         {
-            _context.SaveChanges();
+           return _context.SaveChanges();
         }
     }
 }

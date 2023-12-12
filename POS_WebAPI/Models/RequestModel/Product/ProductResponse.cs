@@ -18,7 +18,7 @@ namespace POS_WebAPI.Models.RequestModel.Product
         public decimal Price { get; set; }
         public string? Description { get; set; }
         public DateTime Create_At { get; set; }
-        public Status Status { get; set; }
+        public string Status { get; set; }=null!;
         public bool Is_Deleted { get; set; }
     }
 }
