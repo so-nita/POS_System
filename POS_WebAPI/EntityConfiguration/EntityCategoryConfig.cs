@@ -9,6 +9,7 @@ namespace POS_WebAPI.EntityConfiguration
         public void Configure(EntityTypeBuilder<Category> builder)
         {
             builder.HasKey(e => e.Id);
+            builder.HasIndex(e=>e.Name).IsUnique();
 
             builder.Property(e => e.Id)
                    .IsRequired()

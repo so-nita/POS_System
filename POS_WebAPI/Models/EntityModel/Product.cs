@@ -4,7 +4,7 @@ using System.IO.Pipes;
 
 namespace POS_WebAPI.Models.EntityModel
 {
-    public class Product : IKey<string> 
+    public class Product  
     {
         public string Id { get; set; } = null!;
         public string Code { get; set; } = null!;

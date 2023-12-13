@@ -17,6 +17,6 @@ namespace POS_WebAPI.Repository
 
         void Delete(TE entity);
         void DeleteRange(ICollection<TE> entities);
-        void SaveChanges();
+        int SaveChanges();
     }
 }
