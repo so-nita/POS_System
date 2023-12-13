@@ -1,0 +1,12 @@
+E:\WindowForm\POS_System\POS_Library\bin\Debug\net8.0\POS_Library.deps.json
+E:\WindowForm\POS_System\POS_Library\bin\Debug\net8.0\POS_Library.dll
+E:\WindowForm\POS_System\POS_Library\bin\Debug\net8.0\POS_Library.pdb
+E:\WindowForm\POS_System\POS_Library\obj\Debug\net8.0\POS_Library.GeneratedMSBuildEditorConfig.editorconfig
+E:\WindowForm\POS_System\POS_Library\obj\Debug\net8.0\POS_Library.AssemblyInfoInputs.cache
+E:\WindowForm\POS_System\POS_Library\obj\Debug\net8.0\POS_Library.AssemblyInfo.cs
+E:\WindowForm\POS_System\POS_Library\obj\Debug\net8.0\POS_Library.csproj.CoreCompileInputs.cache
+E:\WindowForm\POS_System\POS_Library\obj\Debug\net8.0\POS_Library.sourcelink.json
+E:\WindowForm\POS_System\POS_Library\obj\Debug\net8.0\POS_Library.dll
+E:\WindowForm\POS_System\POS_Library\obj\Debug\net8.0\refint\POS_Library.dll
+E:\WindowForm\POS_System\POS_Library\obj\Debug\net8.0\POS_Library.pdb
+E:\WindowForm\POS_System\POS_Library\obj\Debug\net8.0\ref\POS_Library.dll
