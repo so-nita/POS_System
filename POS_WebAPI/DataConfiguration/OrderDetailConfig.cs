@@ -4,7 +4,7 @@ using POS_WebAPI.Models.EntityModel;
 
 namespace POS_WebAPI.EntityConfiguration
 {
-    public class EntityOrderDetailConfig : IEntityTypeConfiguration<OrderDetail>
+    public class OrderDetailConfig : IEntityTypeConfiguration<OrderDetail>
     {
         public void Configure(EntityTypeBuilder<OrderDetail> builder)
         {

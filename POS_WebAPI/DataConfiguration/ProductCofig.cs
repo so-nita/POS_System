@@ -4,7 +4,7 @@ using POS_WebAPI.Models.EntityModel;
 
 namespace POS_WebAPI.EntityConfiguration
 {
-    public class EntityProductCofig : IEntityTypeConfiguration<Product>
+    public class ProductCofig : IEntityTypeConfiguration<Product>
     {
         public void Configure(EntityTypeBuilder<Product> builder)
         {

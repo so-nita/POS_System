@@ -1,4 +1,4 @@
-﻿using POS_WebAPI.Models.Constant;
+﻿/*using POS_WebAPI.Models.Constant;
 
 namespace POS_WebAPI.Models.EntityModel
 {
@@ -14,4 +14,4 @@ namespace POS_WebAPI.Models.EntityModel
         //
         public ICollection<Order>? Orders { get; set; }
     }
-}
+}*/

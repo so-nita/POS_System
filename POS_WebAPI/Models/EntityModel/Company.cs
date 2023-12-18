@@ -6,6 +6,7 @@ namespace POS_WebAPI.Models.EntityModel
     {
         public string Id { get; set; } = null!;
         public string Name { get; set; } = null!;
+        public string? NameKh {  get; set; }
         public string? Email { get; set; } = null!; 
         public string Contact { get; set; } = null!;
         public string System_Id { get; set; }=null!;

@@ -259,3 +259,4 @@ D:\Work\Project\POS_System\POS_WebAPI\bin\Debug\net8.0\runtimes\win\lib\net7.0\S
 D:\Work\Project\POS_System\POS_WebAPI\obj\Debug\net8.0\POS_WebAPI.RazorAssemblyInfo.cache
 D:\Work\Project\POS_System\POS_WebAPI\obj\Debug\net8.0\POS_WebAPI.RazorAssemblyInfo.cs
 D:\Work\Project\POS_System\POS_WebAPI\bin\Debug\net8.0\BCrypt.Net-Next.dll
+D:\Work\Project\POS_System\POS_WebAPI\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
