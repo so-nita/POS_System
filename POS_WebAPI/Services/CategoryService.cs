@@ -7,7 +7,6 @@ using POS_WebAPI.Models;
 using POS_WebAPI.Models.EntityModel;
 using POS_WebAPI.Models.RequestModel.Category;
 using POS_WebAPI.Models.Response;
-using POS_WebAPI.Repository;
 
 namespace POS_WebAPI.Services
 {

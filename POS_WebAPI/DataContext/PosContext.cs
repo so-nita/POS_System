@@ -14,11 +14,14 @@ namespace POS_WebAPI.DataContext
         public DbSet<Role> Roles { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<SubCategory> SubCategories { get; set; }
-        public DbSet<Customer> Customers { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
-        public DbSet<Table> Tables { get; set; }
+        //public DbSet<Table> Tables { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<Receipt> Receipts { get; set; }
+        public DbSet<Section> Section { get; set; }
+        public DbSet<LoginTransaction> Login_Transactions { get; set; }
+
 
         public PosContext(DbContextOptions options) : base(options)
         {

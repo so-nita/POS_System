@@ -1,73 +1,119 @@
-﻿using BCrypt.Net;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
+using POS_WebAPI.Interface;
+using POS_WebAPI.Models.RequestModel.User;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
 namespace POS_WebAPI.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/auth")]
     public class AuthController : Controller
     {
-        private static User user = new User();
+        private readonly IUserService _service;
         private readonly IConfiguration _config;
 
-        public AuthController(IConfiguration configuration)
+        public AuthController(IUserService service, IConfiguration configuration)
         {
+            _service = service;
             _config = configuration;
         }
 
-        [HttpPost("register")]
-        public ActionResult<User> Register(UserCreateReq request)
+        /*[HttpPost("login")]
+        public IActionResult Login([FromBody] UserLoginReq request)
         {
-            var passwordHash = BCrypt.Net.BCrypt.HashPassword(request.Password);
+            var userResponse = _service.GetLogin(request);
 
-            user.Username = request.Username;   
-            user.PasswordHash = passwordHash;
-            return Ok(user);    
-        }
+            if (userResponse.Status != 200)
+            {
+                return Unauthorized();
+            }
+            var authorizationHeader = HttpContext.Request.Headers["Authorization"].FirstOrDefault();
 
+            if (string.IsNullOrEmpty(authorizationHeader) || !authorizationHeader.StartsWith("Bearer"))
+            {
+                return BadRequest("Invalid or missing Authorization header");
+            }
+
+            var token = authorizationHeader.Substring("Bearer ".Length);
+
+            var generatedToken = GenerateJwtToken(userResponse.Result!, token);
+
+            return Ok(new { Token = generatedToken});
+        }*/
         [HttpPost("login")]
-        public ActionResult<User> Login(UserCreateReq request)
+        public IActionResult Login([FromBody] UserLoginReq request)
         {
-            if(user.Username != request.Username)
+            var userResponse = _service.GetLogin(request);
+
+            if (userResponse.Status != 200)
             {
-                return BadRequest("Incorrect Username");
+                return Unauthorized();
             }
-            if (!BCrypt.Net.BCrypt.Verify(request.Password, user.PasswordHash))
+            var authorizationHeader = HttpContext.Request.Headers["Authorization"].FirstOrDefault();
+
+            if (string.IsNullOrEmpty(authorizationHeader) || !authorizationHeader.StartsWith("Bearer"))
             {
-                return BadRequest("Incorrect Password");
+                return Unauthorized();
             }
-            string token = CreateToken(user);
-            //user.Token = token;
-            return Ok(token);
+            var token = authorizationHeader.Substring("Bearer ".Length);
+
+            var configuredSecretKey = _config["AppSettings:Jwt:SecretKey"];
+
+            if (token != configuredSecretKey)
+            {
+                return Unauthorized("Invalid token");
+            }
+
+            var generatedToken = GenerateJwtToken(userResponse.Result!, token);
+            return Ok(userResponse);
+            //return Ok(new { Token = generatedToken });
         }
 
-        private string CreateToken(User user)
+        private string GenerateJwtToken(UserResponse user, string secretKey)
         {
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config.GetSection("AppSettings:Token").Value!));
+            if (string.IsNullOrEmpty(secretKey))
+            {
+                throw new InvalidOperationException("JWT secret key is missing or empty.");
+            }
 
-            var keySize = key.KeySize;
- 
+            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey));
+            var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
+
             var claims = new List<Claim>
             {
-                new Claim(ClaimTypes.Name, user.Username),
+                new Claim(ClaimTypes.NameIdentifier, user.Id),
+                 new Claim(ClaimTypes.NameIdentifier, user.UserName),
             };
-
-            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256Signature);
+            //claims.AddRange(user.Role_Type.Select(role => new Claim(ClaimTypes.Role, role)));
 
             var token = new JwtSecurityToken(
-                claims: claims,
-                expires: DateTime.Now.AddDays(1),
-                signingCredentials: creds
+                _config["AppSettings:Jwt:Issuer"],
+                _config["AppSettings:Jwt:Audience"],
+                claims,
+                expires: DateTime.UtcNow.AddHours(1),
+                signingCredentials: credentials
             );
 
-            var jwt = new JwtSecurityTokenHandler().WriteToken(token);
-            return jwt;
+            return new JwtSecurityTokenHandler().WriteToken(token);
         }
 
-
+        [HttpGet]
+        public async Task<IActionResult> GetUserData()
+        {
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            var user = _service.ReadAll();
+            if (user == null)
+            {
+                return NotFound();
+            }
+            return Ok(user);
+        }
     }
 }
+
+

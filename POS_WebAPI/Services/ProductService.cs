@@ -2,13 +2,13 @@
 using Microsoft.EntityFrameworkCore;
 using POS_WebAPI.DataContext;
 using POS_WebAPI.DataValidation;
+using POS_WebAPI.Interface;
 using POS_WebAPI.Interface.Product;
 using POS_WebAPI.Models;
 using POS_WebAPI.Models.EntityModel;
 using POS_WebAPI.Models.RequestModel.Category;
 using POS_WebAPI.Models.RequestModel.Product;
 using POS_WebAPI.Models.Response;
-using POS_WebAPI.Repository;
 using System.Security.Cryptography.Xml;
 
 namespace POS_WebAPI.Services
@@ -64,7 +64,7 @@ namespace POS_WebAPI.Services
         {
             try
             {
-                var product = GetAll().Result!.Where(e=> e.Id==key.Id && e.Is_Deleted == false).First();
+                var product = GetAll()!.Result!.Where(e=> e.Id==key.Id && e.Is_Deleted == false).First();
                 if (product == null)
                 {
                     return Response<ProductResponse>.NotFound();

@@ -6,7 +6,6 @@ using POS_WebAPI.Models;
 using POS_WebAPI.Models.EntityModel;
 using POS_WebAPI.Models.RequestModel.Company;
 using POS_WebAPI.Models.Response;
-using POS_WebAPI.Repository;
 using System.Runtime.InteropServices;
 
 namespace POS_WebAPI.Services;

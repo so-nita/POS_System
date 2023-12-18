@@ -2,7 +2,7 @@
 {
     public enum OrderStatus
     {
-        Paid = 0,
-        Unpaid = 1
+        Close = 0,
+        Cancel = 1
     }
 }

@@ -1,6 +1,4 @@
-﻿using POS_WebAPI.Interface;
-
-namespace POS_WebAPI.Repository
+﻿namespace POS_WebAPI.Interface
 {
     public interface IRepository<TE> where TE : class
     {

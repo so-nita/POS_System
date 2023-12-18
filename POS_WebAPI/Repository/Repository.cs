@@ -1,4 +1,5 @@
 ﻿using POS_WebAPI.DataContext;
+using POS_WebAPI.Interface;
 
 namespace POS_WebAPI.Repository
 {

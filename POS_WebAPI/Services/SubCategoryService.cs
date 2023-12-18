@@ -1,13 +1,13 @@
 ﻿using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using POS_WebAPI.DataValidation;
+using POS_WebAPI.Interface;
 using POS_WebAPI.Interface.ISubCategory;
 using POS_WebAPI.Interface.Product;
 using POS_WebAPI.Models;
 using POS_WebAPI.Models.EntityModel;
 using POS_WebAPI.Models.RequestModel.SubCategory;
 using POS_WebAPI.Models.Response;
-using POS_WebAPI.Repository;
 
 namespace POS_WebAPI.Services
 {
