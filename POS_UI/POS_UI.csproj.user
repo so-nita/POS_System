@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Compile Update="UserControls\UC_Mart\UC_ViewCard_Order.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UserControls\UC_Store\UC_ProductSell.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UserControls\UC_Store\UC_Product_Price.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UserControls\UC_Resturant\UC_ProuductCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UserControls\UC_Mart\UC_ViewCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="View\Receipt\UC_ResturantReceipt.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="View\Test.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\View_Store.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\View_MainContainer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\View_Mart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\View_PosSubMenu\View_Resturant.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\View_Product.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="UserControls\UC_Resturant\UC_ProductForCart.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+  </ItemGroup>
+</Project>
