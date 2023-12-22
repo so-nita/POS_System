@@ -5,7 +5,7 @@ VisualStudioVersion = 17.8.34316.72
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "POS_WebAPI", "POS_WebAPI\POS_WebAPI.csproj", "{75DFDFA5-0D9A-45A4-BB4A-A07F3E52951E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "POS_UI", "POS_UI\POS_UI.csproj", "{1F3A1C02-8626-4F37-810C-B02537CD74DA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "POS_UI", "POS_UI\POS_UI.csproj", "{1F3A1C02-8626-4F37-810C-B02537CD74DA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
