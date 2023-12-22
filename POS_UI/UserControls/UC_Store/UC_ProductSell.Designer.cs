@@ -28,27 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_ProductSell));
-            materialCard1 = new ReaLTaiizor.Controls.MaterialCard();
             pictureBox1 = new PictureBox();
-            button2 = new Button();
-            button1 = new Button();
-            label2 = new Label();
-            label3 = new Label();
-            label1 = new Label();
-            materialCard1.SuspendLayout();
+            materialCard1 = new ReaLTaiizor.Controls.MaterialCard();
+            lablePrice = new ReaLTaiizor.Controls.BigLabel();
+            btnAdd = new ReaLTaiizor.Controls.Button();
+            lableQty = new ReaLTaiizor.Controls.BigLabel();
+            btnSubstract = new ReaLTaiizor.Controls.Button();
+            lableName = new ReaLTaiizor.Controls.BigLabel();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            materialCard1.SuspendLayout();
             SuspendLayout();
+            // 
+            // pictureBox1
+            // 
+            //pictureBox1.Image = Properties.Resources.Product_Paneer1;
+            pictureBox1.Location = new Point(2, 1);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(57, 54);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 4;
+            pictureBox1.TabStop = false;
             // 
             // materialCard1
             // 
             materialCard1.BackColor = Color.FromArgb(255, 255, 255);
+            materialCard1.Controls.Add(lablePrice);
+            materialCard1.Controls.Add(btnAdd);
+            materialCard1.Controls.Add(lableQty);
+            materialCard1.Controls.Add(btnSubstract);
+            materialCard1.Controls.Add(lableName);
             materialCard1.Controls.Add(pictureBox1);
-            materialCard1.Controls.Add(button2);
-            materialCard1.Controls.Add(button1);
-            materialCard1.Controls.Add(label2);
-            materialCard1.Controls.Add(label3);
-            materialCard1.Controls.Add(label1);
             materialCard1.Depth = 0;
             materialCard1.ForeColor = Color.FromArgb(222, 0, 0, 0);
             materialCard1.Location = new Point(1, 2);
@@ -56,95 +65,105 @@
             materialCard1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             materialCard1.Name = "materialCard1";
             materialCard1.Padding = new Padding(14);
-            materialCard1.Size = new Size(298, 56);
+            materialCard1.Size = new Size(320, 55);
             materialCard1.TabIndex = 0;
             // 
-            // pictureBox1
+            // lablePrice
             // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(2, 3);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(57, 50);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 4;
-            pictureBox1.TabStop = false;
+            lablePrice.BackColor = Color.Transparent;
+            lablePrice.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lablePrice.ForeColor = Color.Red;
+            lablePrice.Location = new Point(193, 12);
+            lablePrice.Name = "lablePrice";
+            lablePrice.Size = new Size(37, 30);
+            lablePrice.TabIndex = 10;
+            lablePrice.TextAlign = ContentAlignment.MiddleLeft;
+            lablePrice.Click += lablePrice_Click;
             // 
-            // button2
+            // btnAdd
             // 
-            button2.BackColor = SystemColors.Control;
-            button2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            button2.ForeColor = Color.Blue;
-            button2.Location = new Point(189, 16);
-            button2.Name = "button2";
-            button2.Size = new Size(19, 23);
-            button2.TabIndex = 3;
-            button2.Text = "-";
-            button2.UseVisualStyleBackColor = false;
+            btnAdd.BackColor = Color.FromArgb(224, 224, 224);
+            btnAdd.BorderColor = Color.FromArgb(32, 34, 37);
+            btnAdd.EnteredBorderColor = Color.FromArgb(165, 37, 37);
+            btnAdd.EnteredColor = Color.FromArgb(32, 34, 37);
+            btnAdd.Font = new Font("Microsoft Sans Serif", 13.5F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAdd.Image = null;
+            btnAdd.ImageAlign = ContentAlignment.MiddleLeft;
+            btnAdd.InactiveColor = Color.FromArgb(32, 34, 37);
+            btnAdd.Location = new Point(287, 16);
+            btnAdd.Name = "btnAdd";
+            btnAdd.PressedBorderColor = Color.FromArgb(165, 37, 37);
+            btnAdd.PressedColor = Color.FromArgb(165, 37, 37);
+            btnAdd.Size = new Size(22, 22);
+            btnAdd.TabIndex = 9;
+            btnAdd.Text = "+";
+            btnAdd.TextAlignment = StringAlignment.Center;
+            btnAdd.Click += btnAdd_Click;
             // 
-            // button1
+            // lableQty
             // 
-            button1.BackColor = SystemColors.Control;
-            button1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            button1.ForeColor = Color.Blue;
-            button1.Location = new Point(139, 16);
-            button1.Name = "button1";
-            button1.Size = new Size(19, 23);
-            button1.TabIndex = 3;
-            button1.Text = "+";
-            button1.UseVisualStyleBackColor = false;
+            lableQty.BackColor = Color.Transparent;
+            lableQty.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lableQty.ForeColor = Color.FromArgb(80, 80, 80);
+            lableQty.Location = new Point(260, 15);
+            lableQty.Name = "lableQty";
+            lableQty.Size = new Size(22, 27);
+            lableQty.TabIndex = 8;
+            lableQty.TextAlign = ContentAlignment.MiddleCenter;
+            lableQty.Click += lableQty_Click;
             // 
-            // label2
+            // btnSubstract
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(167, 18);
-            label2.Name = "label2";
-            label2.Size = new Size(13, 17);
-            label2.TabIndex = 2;
-            label2.Text = "1";
+            btnSubstract.BackColor = Color.FromArgb(224, 224, 224);
+            btnSubstract.BorderColor = Color.FromArgb(64, 64, 64);
+            btnSubstract.EnteredBorderColor = Color.FromArgb(165, 37, 37);
+            btnSubstract.EnteredColor = Color.FromArgb(32, 34, 37);
+            btnSubstract.Font = new Font("Microsoft Sans Serif", 13.5F);
+            btnSubstract.Image = null;
+            btnSubstract.ImageAlign = ContentAlignment.MiddleLeft;
+            btnSubstract.InactiveColor = Color.FromArgb(32, 34, 37);
+            btnSubstract.Location = new Point(235, 16);
+            btnSubstract.Name = "btnSubstract";
+            btnSubstract.PressedBorderColor = Color.FromArgb(165, 37, 37);
+            btnSubstract.PressedColor = Color.FromArgb(165, 37, 37);
+            btnSubstract.Size = new Size(22, 22);
+            btnSubstract.TabIndex = 7;
+            btnSubstract.Text = "-";
+            btnSubstract.TextAlignment = StringAlignment.Center;
+            btnSubstract.Click += btnSubstract_Click;
             // 
-            // label3
+            // lableName
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.ForeColor = Color.Blue;
-            label3.Location = new Point(242, 18);
-            label3.Name = "label3";
-            label3.Size = new Size(39, 17);
-            label3.TabIndex = 1;
-            label3.Text = "$3.00";
+            lableName.BackColor = Color.Transparent;
+            lableName.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lableName.ForeColor = Color.FromArgb(80, 80, 80);
+            lableName.Location = new Point(61, 12);
+            lableName.Name = "lableName";
+            lableName.Size = new Size(126, 30);
+            lableName.TabIndex = 6;
+            lableName.TextAlign = ContentAlignment.MiddleLeft;
+            lableName.Click += lableName_Click;
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(64, 18);
-            label1.Name = "label1";
-            label1.Size = new Size(50, 17);
-            label1.TabIndex = 1;
-            label1.Text = "Paneer";
-            // 
-            // Product_Order
+            // UC_ProductSell
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(materialCard1);
-            Name = "Product_Order";
-            Size = new Size(300, 60);
-            materialCard1.ResumeLayout(false);
-            materialCard1.PerformLayout();
+            Name = "UC_ProductSell";
+            Size = new Size(325, 60);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            materialCard1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
 
-        private ReaLTaiizor.Controls.MaterialCard materialCard1;
-        private Label label1;
-        private Label label2;
-        private Button button1;
-        private Button button2;
-        private Label label3;
         private PictureBox pictureBox1;
+        private ReaLTaiizor.Controls.MaterialCard materialCard1;
+        private ReaLTaiizor.Controls.BigLabel lablePrice;
+        private ReaLTaiizor.Controls.Button btnAdd;
+        private ReaLTaiizor.Controls.BigLabel lableQty;
+        private ReaLTaiizor.Controls.Button btnSubstract;
+        private ReaLTaiizor.Controls.BigLabel lableName;
     }
 }

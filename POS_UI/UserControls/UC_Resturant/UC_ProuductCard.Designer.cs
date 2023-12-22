@@ -44,7 +44,7 @@
             materialCard1.Controls.Add(pictureItem);
             materialCard1.Depth = 0;
             materialCard1.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            materialCard1.Location = new Point(7, 2);
+            materialCard1.Location = new Point(7, 1);
             materialCard1.Margin = new Padding(14);
             materialCard1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             materialCard1.Name = "materialCard1";
@@ -91,7 +91,7 @@
             BackColor = Color.Transparent;
             Controls.Add(materialCard1);
             Name = "UC_ProuductCard";
-            Size = new Size(177, 202);
+            Size = new Size(177, 200);
             materialCard1.ResumeLayout(false);
             materialCard1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureItem).EndInit();

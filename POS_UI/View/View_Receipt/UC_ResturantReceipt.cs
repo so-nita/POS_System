@@ -1,33 +1,35 @@
 ﻿using POS_UI.Model;
+using System.Runtime.InteropServices;
 
 namespace POS_UI.View.Receipt;
 
 public partial class UC_ResturantReceipt : UserControl
 {
-    private readonly OrderReq _products;
-    public UC_ResturantReceipt(OrderReq products=null!)
+    private readonly ReceiptReq _receipt;
+    public UC_ResturantReceipt(ReceiptReq receipt = null!)
     {
         InitializeComponent();
-        _products = products;
+        _receipt = receipt;
         InitializeData();
     }
- 
+
+    
     private void InitializeData()
     {
-        if (_products != null)
+        if (_receipt != null)
         {
             itemDataGridView.ColumnCount = 5;
             itemDataGridView.Columns[0].Width = 180;
             itemDataGridView.Columns[1].Width = 40;
             itemDataGridView.Columns[2].Width = 42;
             itemDataGridView.Columns[3].Width = 50;
-            itemDataGridView.Columns[4].Width = 64;
+            itemDataGridView.Columns[4].Width = 60;
 
             itemDataGridView.AutoSize = true;
-            foreach (var product in _products.OrderDetails)
+            foreach (var product in _receipt.Order.OrderDetails)
             {
                 DataGridViewRow row = new DataGridViewRow();
-                itemDataGridView.Height = itemDataGridView.Columns.Count;
+                //itemDataGridView.Height = itemDataGridView.Columns.Count;
                 row.CreateCells(itemDataGridView);
 
                 var itemTotal = (product.Qty * product.Price) - (product.Discount/100);
@@ -39,10 +41,14 @@ public partial class UC_ResturantReceipt : UserControl
 
                 itemDataGridView.Rows.Add(row);
             }
-            lableSubTotal.Text = _products.SubTotal.ToString();
-            labelPaidAmout.Text = _products.Total.ToString();
-            labelAmountKhr.Text = _products.TotalKhr.ToString();
-            labelReceivedAmount.Text = _products.Total.ToString();
+            var order = _receipt.Order;
+            labelOrderId.Text = _receipt.Code;
+            labelCahierName.Text = "So Nita";
+            labelOrderDate.Text = order.OrderDate.ToString();
+            lableSubTotal.Text = order.SubTotal.ToString();
+            labelPaidAmout.Text = order.Total.ToString();
+            labelAmountKhr.Text = order.TotalKhr.ToString("#,##0.00");
+            labelReceivedAmount.Text = _receipt.Total.ToString();
             labelReceivedAmount.Text = 0.ToString();
         }
     }
@@ -54,7 +60,7 @@ public partial class UC_ResturantReceipt : UserControl
             int[] numericColumns = {2, 3 ,4};
             if (numericColumns.Contains(e.ColumnIndex) && e.Value != null && e.Value != DBNull.Value)
             {
-                e.CellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                e.CellStyle!.Alignment = DataGridViewContentAlignment.MiddleRight;
             }
             else
             {

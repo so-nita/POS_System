@@ -116,3 +116,15 @@ D:\Work\Project\POS_System\POS_UI\obj\Debug\net8.0-windows\POS_UI.UserControls.C
 D:\Work\Project\POS_System\POS_UI\obj\Debug\net8.0-windows\POS_UI.UserControls.UC_Mart.UC_ViewCard_Order.resources
 D:\Work\Project\POS_System\POS_UI\obj\Debug\net8.0-windows\POS_UI.UserControls.CardItem.UC_ProductSell.resources
 D:\Work\Project\POS_System\POS_UI\obj\Debug\net8.0-windows\POS_UI.View.Receipt.UC_ResturantReceipt.resources
+D:\Work\Project\POS_System\POS_UI\bin\Debug\net8.0-windows\EPPlus.dll
+D:\Work\Project\POS_System\POS_UI\bin\Debug\net8.0-windows\EPPlus.Interfaces.dll
+D:\Work\Project\POS_System\POS_UI\bin\Debug\net8.0-windows\EPPlus.System.Drawing.dll
+D:\Work\Project\POS_System\POS_UI\bin\Debug\net8.0-windows\Microsoft.Extensions.Configuration.dll
+D:\Work\Project\POS_System\POS_UI\bin\Debug\net8.0-windows\Microsoft.Extensions.Configuration.Abstractions.dll
+D:\Work\Project\POS_System\POS_UI\bin\Debug\net8.0-windows\Microsoft.Extensions.Configuration.FileExtensions.dll
+D:\Work\Project\POS_System\POS_UI\bin\Debug\net8.0-windows\Microsoft.Extensions.Configuration.Json.dll
+D:\Work\Project\POS_System\POS_UI\bin\Debug\net8.0-windows\Microsoft.Extensions.FileProviders.Abstractions.dll
+D:\Work\Project\POS_System\POS_UI\bin\Debug\net8.0-windows\Microsoft.Extensions.FileProviders.Physical.dll
+D:\Work\Project\POS_System\POS_UI\bin\Debug\net8.0-windows\Microsoft.Extensions.FileSystemGlobbing.dll
+D:\Work\Project\POS_System\POS_UI\bin\Debug\net8.0-windows\Microsoft.Extensions.Primitives.dll
+D:\Work\Project\POS_System\POS_UI\bin\Debug\net8.0-windows\Microsoft.IO.RecyclableMemoryStream.dll

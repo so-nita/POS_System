@@ -28,23 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_Product_Price));
             materialCard1 = new ReaLTaiizor.Controls.MaterialCard();
-            pictureBox1 = new PictureBox();
-            label3 = new Label();
-            label2 = new Label();
-            label1 = new Label();
+            pictureItem = new PictureBox();
+            labelPriceItem = new Label();
+            labelNameItem = new Label();
             materialCard1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureItem).BeginInit();
             SuspendLayout();
             // 
             // materialCard1
             // 
             materialCard1.BackColor = Color.FromArgb(255, 255, 255);
-            materialCard1.Controls.Add(pictureBox1);
-            materialCard1.Controls.Add(label3);
-            materialCard1.Controls.Add(label2);
-            materialCard1.Controls.Add(label1);
+            materialCard1.Controls.Add(pictureItem);
+            materialCard1.Controls.Add(labelPriceItem);
+            materialCard1.Controls.Add(labelNameItem);
             materialCard1.Depth = 0;
             materialCard1.ForeColor = Color.FromArgb(222, 0, 0, 0);
             materialCard1.Location = new Point(5, 3);
@@ -55,66 +52,55 @@
             materialCard1.Size = new Size(157, 184);
             materialCard1.TabIndex = 0;
             // 
-            // pictureBox1
+            // pictureItem
             // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(3, 3);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(150, 118);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 3;
-            pictureBox1.TabStop = false;
+            //pictureItem.Image = Properties.Resources.Product_Paneer;
+            pictureItem.Location = new Point(3, 3);
+            pictureItem.Name = "pictureItem";
+            pictureItem.Size = new Size(150, 132);
+            pictureItem.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureItem.TabIndex = 3;
+            pictureItem.TabStop = false;
             // 
-            // label3
+            // labelPriceItem
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.ForeColor = Color.Crimson;
-            label3.Location = new Point(13, 163);
-            label3.Name = "label3";
-            label3.Size = new Size(40, 17);
-            label3.TabIndex = 2;
-            label3.Text = "3.00$";
+            labelPriceItem.AutoSize = true;
+            labelPriceItem.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold);
+            labelPriceItem.ForeColor = Color.Crimson;
+            labelPriceItem.Location = new Point(10, 163);
+            labelPriceItem.Name = "labelPriceItem";
+            labelPriceItem.Size = new Size(40, 17);
+            labelPriceItem.TabIndex = 2;
+            labelPriceItem.Text = "0.00$";
             // 
-            // label2
+            // labelNameItem
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(13, 143);
-            label2.Name = "label2";
-            label2.Size = new Size(79, 17);
-            label2.TabIndex = 2;
-            label2.Text = "by: KL Food";
+            labelNameItem.AutoSize = true;
+            labelNameItem.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold);
+            labelNameItem.Location = new Point(7, 138);
+            labelNameItem.Name = "labelNameItem";
+            labelNameItem.Size = new Size(50, 17);
+            labelNameItem.TabIndex = 2;
+            labelNameItem.Text = "Paneer";
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(13, 124);
-            label1.Name = "label1";
-            label1.Size = new Size(50, 17);
-            label1.TabIndex = 2;
-            label1.Text = "Paneer";
-            // 
-            // Product_Price
+            // UC_Product_Price
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(materialCard1);
-            Name = "Product_Price";
+            Name = "UC_Product_Price";
             Size = new Size(165, 190);
             materialCard1.ResumeLayout(false);
             materialCard1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureItem).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
         private ReaLTaiizor.Controls.MaterialCard materialCard1;
-        private Label label2;
-        private Label label1;
-        private Label label3;
-        private PictureBox pictureBox1;
+        private Label labelNameItem;
+        private Label labelPriceItem;
+        private PictureBox pictureItem;
     }
 }

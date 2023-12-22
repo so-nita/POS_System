@@ -1,14 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Drawing;
-using System.Drawing.Printing;
-using System.Windows.Forms;
+﻿using System.Drawing.Printing;
 
 namespace POS_UI.Components;
 
-using System;
-using System.Drawing;
-using System.Drawing.Printing;
-using System.Windows.Forms;
 
 public static class Printer
 {
@@ -32,8 +25,30 @@ public static class Printer
             pd.Print();
         }
     }
-}
+    /*public static void ExportToExcel()
+    {
+        SaveFileDialog saveFileDialog = new SaveFileDialog();
+        saveFileDialog.Filter = "Excel Files (*.xlsx)|*.xlsx";
+        saveFileDialog.FileName = "text.xlsx";
 
+        if (saveFileDialog.ShowDialog() == DialogResult.OK)
+        {
+            string filePath = saveFileDialog.FileName;
+
+            using (var package = new ExcelPackage(new FileInfo(filePath)))
+            {
+                // Add a worksheet to the workbook
+                var worksheet = package.Workbook.Worksheets.Add("Sheet1");
+
+                worksheet.Cells["A1"].Value = "Hello";
+
+                package.Save();
+
+                MessageBox.Show($"Data saved in Excel format at location: {filePath}");
+            }
+        }
+    }*/
+}
 /*public static class Printer
 {
     public static void PrintReceipt(UserControl receiptControl)

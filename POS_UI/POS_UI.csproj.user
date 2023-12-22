@@ -10,13 +10,19 @@
     <Compile Update="UserControls\UC_Store\UC_Product_Price.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="UserControls\UC_Store_Old\UC_ProductSell.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UserControls\UC_Store_Old\UC_Product_Price.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="UserControls\UC_Resturant\UC_ProuductCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="UserControls\UC_Mart\UC_ViewCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="View\Receipt\UC_ResturantReceipt.cs">
+    <Compile Update="View\View_Receipt\UC_ResturantReceipt.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="View\Test.cs">

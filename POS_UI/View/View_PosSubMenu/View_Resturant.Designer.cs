@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             panelMainView = new Panel();
-            materialCard2 = new ReaLTaiizor.Controls.MaterialCard();
-            flowLayoutPanel1 = new FlowLayoutPanel();
+            materialCardCategory = new ReaLTaiizor.Controls.MaterialCard();
+            panelCategory = new FlowLayoutPanel();
             panelListProduct = new FlowLayoutPanel();
             panelOrderCart = new ReaLTaiizor.Controls.MaterialCard();
             bunifuFlatButton1 = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -50,7 +50,7 @@
             bigLabel2 = new ReaLTaiizor.Controls.BigLabel();
             bigLabel1 = new ReaLTaiizor.Controls.BigLabel();
             panelMainView.SuspendLayout();
-            materialCard2.SuspendLayout();
+            materialCardCategory.SuspendLayout();
             panelOrderCart.SuspendLayout();
             materialCard1.SuspendLayout();
             panel1.SuspendLayout();
@@ -59,7 +59,7 @@
             // panelMainView
             // 
             panelMainView.BackColor = Color.White;
-            panelMainView.Controls.Add(materialCard2);
+            panelMainView.Controls.Add(materialCardCategory);
             panelMainView.Controls.Add(panelListProduct);
             panelMainView.Controls.Add(panelOrderCart);
             panelMainView.Dock = DockStyle.Fill;
@@ -68,36 +68,43 @@
             panelMainView.Size = new Size(1220, 650);
             panelMainView.TabIndex = 0;
             // 
-            // materialCard2
+            // materialCardCategory
             // 
-            materialCard2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            materialCard2.BackColor = Color.FromArgb(255, 255, 255);
-            materialCard2.Controls.Add(flowLayoutPanel1);
-            materialCard2.Depth = 0;
-            materialCard2.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            materialCard2.Location = new Point(12, 6);
-            materialCard2.Margin = new Padding(14);
-            materialCard2.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            materialCard2.Name = "materialCard2";
-            materialCard2.Padding = new Padding(14);
-            materialCard2.Size = new Size(835, 55);
-            materialCard2.TabIndex = 1;
+            materialCardCategory.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            materialCardCategory.AutoScroll = true;
+            materialCardCategory.BackColor = Color.FromArgb(255, 255, 255);
+            materialCardCategory.Controls.Add(panelCategory);
+            materialCardCategory.Depth = 0;
+            materialCardCategory.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            materialCardCategory.Location = new Point(12, 6);
+            materialCardCategory.Margin = new Padding(14);
+            materialCardCategory.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            materialCardCategory.Name = "materialCardCategory";
+            materialCardCategory.Padding = new Padding(14);
+            materialCardCategory.Size = new Size(835, 58);
+            materialCardCategory.TabIndex = 1;
             // 
-            // flowLayoutPanel1
+            // panelCategory
             // 
-            flowLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            flowLayoutPanel1.Location = new Point(3, 2);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(828, 50);
-            flowLayoutPanel1.TabIndex = 0;
+            panelCategory.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panelCategory.BackColor = Color.White;
+            panelCategory.Location = new Point(2, 1);
+            panelCategory.Name = "panelCategory";
+            panelCategory.Size = new Size(828, 55);
+            panelCategory.TabIndex = 0;
+            panelCategory.WrapContents = false;
+            panelCategory.AutoScroll = false;
+            panelCategory.VerticalScroll.Maximum = 0;
+            panelCategory.HorizontalScroll.Maximum = 0;
+            panelCategory.AutoScroll = true;
             // 
             // panelListProduct
             // 
             panelListProduct.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            panelListProduct.Location = new Point(1, 68);
+            panelListProduct.Location = new Point(2, 72);
             panelListProduct.Name = "panelListProduct";
             panelListProduct.Padding = new Padding(1, 0, 0, 0);
-            panelListProduct.Size = new Size(855, 580);
+            panelListProduct.Size = new Size(855, 575);
             panelListProduct.TabIndex = 0;
             // 
             // panelOrderCart
@@ -110,12 +117,12 @@
             panelOrderCart.Controls.Add(panel1);
             panelOrderCart.Depth = 0;
             panelOrderCart.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            panelOrderCart.Location = new Point(860, 6);
+            panelOrderCart.Location = new Point(860, 5);
             panelOrderCart.Margin = new Padding(14);
             panelOrderCart.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             panelOrderCart.Name = "panelOrderCart";
             panelOrderCart.Padding = new Padding(14);
-            panelOrderCart.Size = new Size(354, 636);
+            panelOrderCart.Size = new Size(354, 635);
             panelOrderCart.TabIndex = 0;
             // 
             // bunifuFlatButton1
@@ -168,7 +175,7 @@
             materialCard1.Controls.Add(bigLabel3);
             materialCard1.Depth = 0;
             materialCard1.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            materialCard1.Location = new Point(9, 466);
+            materialCard1.Location = new Point(9, 465);
             materialCard1.Margin = new Padding(14);
             materialCard1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             materialCard1.Name = "materialCard1";
@@ -275,12 +282,15 @@
             // panelCart
             // 
             panelCart.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
-            panelCart.AutoScroll = true;
             panelCart.Location = new Point(0, 46);
             panelCart.Name = "panelCart";
             panelCart.Padding = new Padding(6, 0, 0, 0);
-            panelCart.Size = new Size(354, 417);
+            panelCart.Size = new Size(354, 416);
             panelCart.TabIndex = 1;
+            panelCart.AutoScroll = false;
+            //panelCart.VerticalScroll.Maximum = 10;
+            panelCart.HorizontalScroll.Maximum = 0;
+            panelCart.AutoScroll = true;
             // 
             // panel1
             // 
@@ -400,7 +410,7 @@
             Name = "View_Resturant";
             Text = "View_Resturant";
             panelMainView.ResumeLayout(false);
-            materialCard2.ResumeLayout(false);
+            materialCardCategory.ResumeLayout(false);
             panelOrderCart.ResumeLayout(false);
             materialCard1.ResumeLayout(false);
             materialCard1.PerformLayout();
@@ -420,9 +430,9 @@
         private ReaLTaiizor.Controls.MaterialCard materialCard1;
         private ReaLTaiizor.Controls.BigLabel bigLabel1;
         private ReaLTaiizor.Controls.BigLabel bigLabel2;
-        private FlowLayoutPanel flowLayoutPanel1;
+        private FlowLayoutPanel panelCategory;
         private FlowLayoutPanel panelListProduct;
-        private ReaLTaiizor.Controls.MaterialCard materialCard2;
+        private ReaLTaiizor.Controls.MaterialCard materialCardCategory;
         private ReaLTaiizor.Controls.BigLabel bigLabel5;
         private ReaLTaiizor.Controls.BigLabel bigLabel3;
         private ReaLTaiizor.Controls.BigLabel bigLabel4;

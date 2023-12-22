@@ -473,9 +473,9 @@
             // 
             centerPanel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             centerPanel.BackColor = Color.White;
-            centerPanel.Location = new Point(203, 50);
+            centerPanel.Location = new Point(201, 48);
             centerPanel.Name = "centerPanel";
-            centerPanel.Size = new Size(1100, 693);
+            centerPanel.Size = new Size(1102, 693);
             centerPanel.TabIndex = 15;
             // 
             // View_MainContainer

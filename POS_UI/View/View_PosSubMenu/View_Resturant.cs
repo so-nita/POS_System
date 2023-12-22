@@ -1,19 +1,73 @@
 ﻿using POS_UI.Components;
+using POS_UI.Components.CustomeStyle;
 using POS_UI.Model;
+using POS_UI.Model.Constant;
 using POS_UI.UserControls;
 using POS_UI.View.Receipt;
+using ReaLTaiizor.Controls;
 
 namespace POS_UI.View.View_PosSubMenu;
 
 public partial class View_Resturant : Form
 {
     public List<Product> Products = new List<Product>();
-    //public List<OrderReq> Carts = new ();
     public OrderReq Carts = new();
+    private List<OrderReq> HeldOrders = new List<OrderReq>();
+    private CustomTouchScroll productTouchScroll;
+    private CustomTouchScroll cartTouchScroll;
+
     public View_Resturant()
     {
         InitializeComponent();
+        InitializeData();
+    }
+
+    private void InitializeData()
+    {
         InitListProduct();
+        productTouchScroll = new CustomTouchScroll(panelCategory, ScrollDirection.Horizontal);
+        cartTouchScroll = new CustomTouchScroll(panelCart, ScrollDirection.Vertical);
+
+        InitButtonCategory();
+    }
+    private void InitButtonCategory()
+    {
+        panelCategory.Controls.Clear();
+        var products = new List<Item>(){
+            new Item(){ Name = "Category#01" },
+            new Item(){ Name = "Category#02" },
+            new Item(){ Name = "Category#03" },
+            new Item(){ Name = "Category#04" },
+            new Item(){ Name = "Category#04" },
+            new Item(){ Name = "Category#05" },
+            new Item(){ Name = "Category#06" },
+            new Item(){ Name = "Category#07" },
+            new Item(){ Name = "Category#07" },
+            new Item(){ Name = "Category#09" },
+            new Item(){ Name = "Category#10" },
+            new Item(){ Name = "Category#11" },
+            new Item(){ Name = "Category#12" },
+        };
+        foreach (var item in products)
+        {
+            CreateButtonCategory(item);
+        }
+    }
+    private void CreateButtonCategory(Item item)
+    {
+        var btnCategory = new RoyalButton();
+        btnCategory.BackColor = Color.White;
+        btnCategory.BorderColor = Color.White;
+        btnCategory.BorderThickness = 3;
+        btnCategory.DrawBorder = false;
+        btnCategory.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+        btnCategory.ForeColor = Color.FromArgb(0, 89, 179);
+        btnCategory.Size = new Size(120, 50);
+        btnCategory.TabIndex = 12;
+        btnCategory.Text = item.Name;
+
+        panelCategory.Controls.Add(btnCategory);
+        productTouchScroll.AssignScrollEvent(btnCategory);
     }
 
     private void InitListProduct()
@@ -54,7 +108,7 @@ public partial class View_Resturant : Form
         {
             var product = productCard.Product;
             var existProduct = Carts.OrderDetails.FirstOrDefault(e => e.ProductId == product.Id);
-            
+
             if (existProduct == null)
             {
                 var productOrder = new OrderDetailReq()
@@ -99,26 +153,14 @@ public partial class View_Resturant : Form
         var test = Carts;
         if (Carts.OrderDetails.Any())
         {
-            /*var subTotal = Carts.OrderDetails.Sum(e => e.Price * e.Qty);
-            var tax = Carts.Tax / 100;
-            var total = subTotal - (Carts.Discount/100) - tax;
-            var data = new OrderReq()
-            {
-                Id = Guid.NewGuid().ToString(),
-                SubTotal = subTotal,
-                Discount = 0,
-                Tax = tax,
-                Total = total,
-                TotalKhr = total * 4500,
-            };*/
-            InitProductTotal(GetOrderReq());
+            InitProductTotal(GetOrder);
         }
     }
 
     private void InitProductTotal(OrderReq data)
     {
         lableSubTotal.Text = "$ " + data.SubTotal.ToString("N2");
-        lableDiscount.Text = "$ " + data.Discount.ToString("N2");
+        lableDiscount.Text = "$ " + data.Discount?.ToString("N2");
         lableTax.Text = "$ " + data.Tax.ToString("N2");
         lableTotal.Text = "$ " + data.Total.ToString("N2");
     }
@@ -128,17 +170,12 @@ public partial class View_Resturant : Form
         CalculateTotal();
     }
 
-    private void btnHold_Click(object sender, EventArgs e)
-    {
-
-    }
-
     // Button Print receipt
     private void btnPrint_Click(object sender, EventArgs e)
     {
-        if(Carts.OrderDetails.Any())
+        if (Carts.OrderDetails.Any())
         {
-            var receipt = new UC_ResturantReceipt(GetOrderReq()) ;
+            var receipt = new UC_ResturantReceipt(GetReceipt);
 
             this.Controls.Add(receipt);
             Printer.PrintReceipt(receipt);
@@ -148,20 +185,78 @@ public partial class View_Resturant : Form
             MessageBox.Show("Select item to cart.");
         }
     }
-    private OrderReq GetOrderReq()
+    // Return Data of Order 
+    private OrderReq GetOrder
     {
-        var subTotal = Carts.OrderDetails.Sum(e => e.Price * e.Qty);
-        var tax = Carts.Tax / 100;
-        var total = subTotal - (Carts.Discount / 100) - tax;
-        return new OrderReq()
+        get
         {
-            Id = Guid.NewGuid().ToString(),
-            SubTotal = subTotal,
-            Discount = 0,
-            Tax = tax,
-            Total = total,
-            TotalKhr = total * 4500,
-            OrderDetails = Carts.OrderDetails,
-        };
+            var subTotal = Carts.OrderDetails.Sum(e => e.Price * e.Qty);
+            var tax = (subTotal != 0) ? Carts.Tax * subTotal / 100 : 0.00m;
+            var total = (subTotal != 0) ? subTotal - (Carts.Discount / 100) + tax : 0.00m;
+            return new OrderReq()
+            {
+                SubTotal = subTotal,
+                Discount = 0,
+                Tax = tax,
+                Total = (decimal)total!,
+                TotalKhr = (decimal)(total * 4000),
+                OrderDate = DateTime.Now,
+                OrderDetails = Carts.OrderDetails,
+            };
+        }
     }
+    // Return Data of Receipt
+    private ReceiptReq GetReceipt
+    {
+        get
+        {
+            return new ReceiptReq()
+            {
+                Code = GenerateReceiptCode(),
+                Discount = GetOrder.Discount,
+                DiscounType = GetOrder.DiscountType,
+                OrderDate = GetOrder.OrderDate,
+                //OrderId = GetOrder.Id,
+                Total = GetOrder.Total,
+                Reference = "So Nita",
+                TransactionDate = GetOrder.OrderDate,
+                Order = GetOrder
+            };
+        }
+    }
+    public string GenerateReceiptCode()
+    {
+        string prefix = "REC";
+        string uniqueId = Guid.NewGuid().ToString("N");
+        string receiptCode = $"{prefix}-{uniqueId}";
+
+        return receiptCode;
+    }
+
+    // Button hold order
+    private void btnHold_Click(object sender, EventArgs e)
+    {
+        if (Carts.OrderDetails.Any())
+        {
+            var heldOrder = new OrderReq
+            {
+                //Id = Guid.NewGuid().ToString(),
+                OrderDetails = Carts.OrderDetails.ToList(),
+            };
+
+            HeldOrders.Add(heldOrder);
+            ClearCurrentOrder();
+        }
+        else
+        {
+            MessageBox.Show("Select items to cart before holding the order.");
+        }
+    }
+    private void ClearCurrentOrder()
+    {
+        Carts = new OrderReq();
+        InitProductTotal(GetOrder);
+        panelCart.Controls.Clear();
+    }
+ 
 }
