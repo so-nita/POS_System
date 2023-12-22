@@ -1,15 +1,12 @@
 ﻿using AutoMapper;
 using Microsoft.EntityFrameworkCore;
-using POS_WebAPI.DataContext;
 using POS_WebAPI.DataValidation;
 using POS_WebAPI.Interface;
 using POS_WebAPI.Interface.Product;
 using POS_WebAPI.Models;
 using POS_WebAPI.Models.EntityModel;
-using POS_WebAPI.Models.RequestModel.Category;
 using POS_WebAPI.Models.RequestModel.Product;
 using POS_WebAPI.Models.Response;
-using System.Security.Cryptography.Xml;
 
 namespace POS_WebAPI.Services
 {
@@ -32,7 +29,8 @@ namespace POS_WebAPI.Services
             try
             {
                 var data = _repo.GetQueryable()
-                        .Include(e=>e.Company).Include(c=>c.SubCategory)
+                        //.Include(e=>e.UserLog)
+                        .Include(c=>c.SubCategory)
                         .Select(e => new ProductResponse()
                         {
                             Id = e.Id,
@@ -43,7 +41,7 @@ namespace POS_WebAPI.Services
                             Cost = e.Cost,
                             Code = e.Code,
                             Company_Id = e.Company_Id,
-                            Company_Name = e.Company.Name,
+                            Company_Name = e.Company_Name,
                             Sub_Category_Id = e.Category_Id,
                             Sub_Category_Name = e.SubCategory.Name,
                             Create_At = e.Create_At,
@@ -82,7 +80,6 @@ namespace POS_WebAPI.Services
         {
             try
             {
-                var test = _repo.GetAll();
                 var products = GetAll().Result!.Where(e => e.Is_Deleted == false).ToList();
 
                 return Response<List<ProductResponse>>.Success(products,products.Count());
@@ -132,8 +129,6 @@ namespace POS_WebAPI.Services
                 };
 
                 _repo.Add(product);
-               ;
-
                 return _repo.SaveChanges()>0 ? Response<string>.Fail("Create Successfully.")
                                              : Response<string>.Fail("Fail to Create.");
             }

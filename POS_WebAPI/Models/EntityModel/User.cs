@@ -23,7 +23,8 @@ namespace POS_WebAPI.Models.EntityModel
         public Company Company { get; set; }=null!;
         public Role Role { get; set; } = null!;
         public ICollection<Order>? Orders { get; set; } 
-        public ICollection<LoginTransaction>? Logins { get; set; }
+        public ICollection<UserLog>? UserLog { get; set; }
         public ICollection<Receipt>? Receipts { get; set; }
+        public ICollection<Product>? Products { get; set; }
     }
 }

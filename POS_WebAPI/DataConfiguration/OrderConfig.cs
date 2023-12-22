@@ -36,7 +36,7 @@ namespace POS_WebAPI.EntityConfiguration
 
             builder.Property(e => e.Total).IsRequired().HasColumnType("decimal(8,2)");
 
-            builder.Property(e => e.Grand_Total).IsRequired()
+            builder.Property(e => e.Sub_Total).IsRequired()
                                                 .HasColumnType("decimal(8,2)");
 
             builder.Property(e => e.Order_Status).IsRequired()

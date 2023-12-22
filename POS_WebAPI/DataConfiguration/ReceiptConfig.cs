@@ -22,15 +22,8 @@ namespace POS_WebAPI.EntityConfiguration
                                                 .HasColumnType("varchar")
                                                 .HasMaxLength(36);
 
-            builder.Property(e => e.Grand_Total).IsRequired()
-                                                .HasColumnType("decimal(8,2)");
-
             builder.Property(e => e.Discount).IsRequired()
                                                 .HasColumnType("decimal(8,2)");
-
-            builder.Property(e => e.Discoun_Type).IsRequired(false)
-                                                .HasColumnType("varchar")
-                                                .HasMaxLength(100);
 
             builder.Property(e => e.Total).IsRequired()
                                                 .HasColumnType("decimal(8,2)");
