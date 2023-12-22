@@ -32,7 +32,7 @@ namespace POS_UI.UserControls.UC_Mart
             materialCardOrder = new ReaLTaiizor.Controls.MaterialCard();
             iconButtonSumCardOrder = new FontAwesome.Sharp.IconButton();
             iconButtonSubCardOrder = new FontAwesome.Sharp.IconButton();
-            labelNumber = new Label();
+            labelNumberQty = new Label();
             iconButton4 = new FontAwesome.Sharp.IconButton();
             labelPriceCardOrder = new Label();
             pictureBoxCardOrder = new PictureBox();
@@ -46,7 +46,7 @@ namespace POS_UI.UserControls.UC_Mart
             materialCardOrder.BackColor = Color.FromArgb(255, 255, 255);
             materialCardOrder.Controls.Add(iconButtonSumCardOrder);
             materialCardOrder.Controls.Add(iconButtonSubCardOrder);
-            materialCardOrder.Controls.Add(labelNumber);
+            materialCardOrder.Controls.Add(labelNumberQty);
             materialCardOrder.Controls.Add(iconButton4);
             materialCardOrder.Controls.Add(labelPriceCardOrder);
             materialCardOrder.Controls.Add(pictureBoxCardOrder);
@@ -58,7 +58,7 @@ namespace POS_UI.UserControls.UC_Mart
             materialCardOrder.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             materialCardOrder.Name = "materialCardOrder";
             materialCardOrder.Padding = new Padding(14);
-            materialCardOrder.Size = new Size(296, 54);
+            materialCardOrder.Size = new Size(275, 54);
             materialCardOrder.TabIndex = 14;
             // 
             // iconButtonSumCardOrder
@@ -66,7 +66,7 @@ namespace POS_UI.UserControls.UC_Mart
             iconButtonSumCardOrder.BackColor = Color.FromArgb(224, 224, 224);
             iconButtonSumCardOrder.FlatStyle = FlatStyle.Flat;
             iconButtonSumCardOrder.ForeColor = Color.Gainsboro;
-            iconButtonSumCardOrder.IconChar = FontAwesome.Sharp.IconChar.Plus;
+            iconButtonSumCardOrder.IconChar = FontAwesome.Sharp.IconChar.Add;
             iconButtonSumCardOrder.IconColor = Color.RoyalBlue;
             iconButtonSumCardOrder.IconFont = FontAwesome.Sharp.IconFont.Regular;
             iconButtonSumCardOrder.IconSize = 18;
@@ -75,6 +75,7 @@ namespace POS_UI.UserControls.UC_Mart
             iconButtonSumCardOrder.Size = new Size(22, 22);
             iconButtonSumCardOrder.TabIndex = 116;
             iconButtonSumCardOrder.UseVisualStyleBackColor = false;
+            iconButtonSumCardOrder.Click += iconButtonSumCardOrder_Click;
             // 
             // iconButtonSubCardOrder
             // 
@@ -90,24 +91,25 @@ namespace POS_UI.UserControls.UC_Mart
             iconButtonSubCardOrder.Size = new Size(22, 22);
             iconButtonSubCardOrder.TabIndex = 115;
             iconButtonSubCardOrder.UseVisualStyleBackColor = false;
+            iconButtonSubCardOrder.Click += iconButtonSubCardOrder_Click;
             // 
-            // labelNumber
+            // labelNumberQty
             // 
-            labelNumber.AutoSize = true;
-            labelNumber.Font = new Font("Times New Roman", 9F, FontStyle.Bold);
-            labelNumber.ForeColor = Color.RoyalBlue;
-            labelNumber.Location = new Point(190, 19);
-            labelNumber.Name = "labelNumber";
-            labelNumber.Size = new Size(13, 15);
-            labelNumber.TabIndex = 114;
-            labelNumber.Text = "1";
+            labelNumberQty.AutoSize = true;
+            labelNumberQty.Font = new Font("Times New Roman", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            labelNumberQty.ForeColor = Color.RoyalBlue;
+            labelNumberQty.Location = new Point(190, 19);
+            labelNumberQty.Name = "labelNumberQty";
+            labelNumberQty.Size = new Size(13, 15);
+            labelNumberQty.TabIndex = 114;
+            labelNumberQty.Text = "1";
             // 
             // iconButton4
             // 
             iconButton4.BackColor = Color.WhiteSmoke;
             iconButton4.FlatStyle = FlatStyle.Flat;
             iconButton4.ForeColor = Color.Gainsboro;
-            iconButton4.IconChar = FontAwesome.Sharp.IconChar.Plus;
+            iconButton4.IconChar = FontAwesome.Sharp.IconChar.Add;
             iconButton4.IconColor = Color.RoyalBlue;
             iconButton4.IconFont = FontAwesome.Sharp.IconFont.Regular;
             iconButton4.IconSize = 18;
@@ -120,9 +122,9 @@ namespace POS_UI.UserControls.UC_Mart
             // labelPriceCardOrder
             // 
             labelPriceCardOrder.AutoSize = true;
-            labelPriceCardOrder.Font = new Font("Times New Roman", 9F, FontStyle.Bold);
-            labelPriceCardOrder.ForeColor = Color.RoyalBlue;
-            labelPriceCardOrder.Location = new Point(248, 21);
+            labelPriceCardOrder.Font = new Font("Times New Roman", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            labelPriceCardOrder.ForeColor = Color.Red;
+            labelPriceCardOrder.Location = new Point(232, 20);
             labelPriceCardOrder.Name = "labelPriceCardOrder";
             labelPriceCardOrder.Size = new Size(34, 15);
             labelPriceCardOrder.TabIndex = 19;
@@ -131,16 +133,18 @@ namespace POS_UI.UserControls.UC_Mart
             // pictureBoxCardOrder
             // 
             pictureBoxCardOrder.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBoxCardOrder.Location = new Point(-1, 0);
+            pictureBoxCardOrder.Image = Properties.Resources.orio1;
+            pictureBoxCardOrder.Location = new Point(0, 0);
             pictureBoxCardOrder.Name = "pictureBoxCardOrder";
             pictureBoxCardOrder.Size = new Size(64, 54);
+            pictureBoxCardOrder.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBoxCardOrder.TabIndex = 3;
             pictureBoxCardOrder.TabStop = false;
             // 
             // labelNameCardOrder
             // 
             labelNameCardOrder.AutoSize = true;
-            labelNameCardOrder.Font = new Font("Times New Roman", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            labelNameCardOrder.Font = new Font("Times New Roman", 9F, FontStyle.Regular, GraphicsUnit.Point);
             labelNameCardOrder.Location = new Point(73, 20);
             labelNameCardOrder.Name = "labelNameCardOrder";
             labelNameCardOrder.Size = new Size(40, 15);
@@ -154,7 +158,7 @@ namespace POS_UI.UserControls.UC_Mart
             BackColor = Color.Transparent;
             Controls.Add(materialCardOrder);
             Name = "UC_ViewCard_Order";
-            Size = new Size(306, 64);
+            Size = new Size(285, 65);
             materialCardOrder.ResumeLayout(false);
             materialCardOrder.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxCardOrder).EndInit();
@@ -166,7 +170,7 @@ namespace POS_UI.UserControls.UC_Mart
 
         private ReaLTaiizor.Controls.MaterialCard materialCardOrder;
         private FontAwesome.Sharp.IconButton iconButtonSumCardOrder;
-        private Label labelNumber;
+        private Label labelNumberQty;
         private FontAwesome.Sharp.IconButton iconButton4;
         private Label labelPriceCardOrder;
         private PictureBox pictureBoxCardOrder;

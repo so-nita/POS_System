@@ -1,4 +1,5 @@
-﻿using System;
+﻿using POS_UI.View;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,13 +13,28 @@ namespace POS_UI.UserControls
 {
     public partial class UC_ViewCard : UserControl
     {
-        public UC_ViewCard()
+        public EventHandler ProductClicked;
+        public ItemMart Item;
+        public UC_ViewCard(ItemMart item = null!)
         {
             InitializeComponent();
+            Item = item;
+            AssignValueToCard();
         }
-        private void UC_ViewCard_Load(object sender, EventArgs e)
-        {
 
+        private void AssignValueToCard()
+        {
+            if (Item != null)
+            {
+                lableItemName.Text = Item.Name.ToString();
+                labelItemPrice.Text = Item.Price.ToString() ?? "0.00";
+            }
         }
+
+        private void pictureItem_Click(object sender, EventArgs e)
+        {
+            ProductClicked?.Invoke(this, EventArgs.Empty);
+        }
+
     }
 }

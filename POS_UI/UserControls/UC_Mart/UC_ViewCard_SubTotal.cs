@@ -1,4 +1,5 @@
-﻿using System;
+﻿using POS_UI.View;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,11 +9,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace POS_UI.UserControls.CardItem
+namespace POS_UI.UserControls.UC_Mart
 {
-    public partial class UC_ProductSell : UserControl
+    public partial class UC_ViewCard_SubTotal : UserControl
     {
-        public UC_ProductSell()
+        private Order _subTotals;
+        public UC_ViewCard_SubTotal(Order subTotals = null!)
         {
             InitializeComponent();
         }
