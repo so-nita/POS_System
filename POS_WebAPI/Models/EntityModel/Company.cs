@@ -19,6 +19,6 @@ namespace POS_WebAPI.Models.EntityModel
         //
         public ICollection<User>? Users { get; set; }
         public SystemType SystemType { get; set; } = null!;
-        public ICollection<Product>? Products { get; set; }
+        //public ICollection<Product>? Products { get; set; }
     }
 }

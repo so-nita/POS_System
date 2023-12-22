@@ -55,7 +55,7 @@ namespace POS_WebAPI.Migrations
                     b.HasIndex("Name")
                         .IsUnique();
 
-                    b.ToTable("Categories");
+                    b.ToTable("Category");
                 });
 
             modelBuilder.Entity("POS_WebAPI.Models.EntityModel.Company", b =>
@@ -93,6 +93,11 @@ namespace POS_WebAPI.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("varchar");
 
+                    b.Property<string>("NameKh")
+                        .HasMaxLength(100)
+                        .IsUnicode(true)
+                        .HasColumnType("varchar");
+
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
@@ -112,86 +117,51 @@ namespace POS_WebAPI.Migrations
                     b.ToTable("Companies");
                 });
 
-            modelBuilder.Entity("POS_WebAPI.Models.EntityModel.Customer", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasMaxLength(36)
-                        .HasColumnType("varchar");
-
-                    b.Property<string>("Address")
-                        .HasMaxLength(255)
-                        .HasColumnType("varchar");
-
-                    b.Property<string>("Contact")
-                        .IsRequired()
-                        .HasMaxLength(12)
-                        .HasColumnType("varchar");
-
-                    b.Property<DateTime>("Create_At")
-                        .HasColumnType("datetime");
-
-                    b.Property<bool?>("Is_Deleted")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("varchar");
-
-                    b.Property<int>("Status")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Customers");
-                });
-
             modelBuilder.Entity("POS_WebAPI.Models.EntityModel.Order", b =>
                 {
                     b.Property<string>("Id")
                         .HasMaxLength(36)
                         .HasColumnType("varchar");
 
-                    b.Property<DateTime>("Create_At")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("CustomerName")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("varchar");
-
-                    b.Property<string>("Customer_Id")
+                    b.Property<string>("Company_Id")
                         .HasMaxLength(36)
                         .HasColumnType("varchar");
 
                     b.Property<bool?>("Is_Delete")
+                        .IsRequired()
                         .HasColumnType("bit");
 
-                    b.Property<int>("OrderStatus")
+                    b.Property<DateTime>("Order_Date")
+                        .HasColumnType("datetime");
+
+                    b.Property<int>("Order_Status")
                         .HasColumnType("int");
 
-                    b.Property<string>("Table_Id")
+                    b.Property<string>("Reference_Id")
                         .HasMaxLength(36)
                         .HasColumnType("varchar");
+
+                    b.Property<string>("Section_Id")
+                        .HasMaxLength(36)
+                        .HasColumnType("varchar");
+
+                    b.Property<decimal>("Sub_Total")
+                        .HasColumnType("decimal(8,2)");
 
                     b.Property<decimal>("Total")
                         .HasColumnType("decimal(8,2)");
 
-                    b.Property<int>("TotalItem")
-                        .HasColumnType("int");
+                    b.Property<decimal>("Total_Discount")
+                        .HasColumnType("decimal(8,2)");
 
-                    b.Property<string>("User_Id")
-                        .IsRequired()
-                        .HasMaxLength(36)
-                        .HasColumnType("varchar");
+                    b.Property<int>("Total_Item")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("Customer_Id");
+                    b.HasIndex("Reference_Id");
 
-                    b.HasIndex("Table_Id");
-
-                    b.HasIndex("User_Id");
+                    b.HasIndex("Section_Id");
 
                     b.ToTable("Orders");
                 });
@@ -205,7 +175,7 @@ namespace POS_WebAPI.Migrations
                     b.Property<DateTime>("Create_At")
                         .HasColumnType("datetime");
 
-                    b.Property<decimal>("GrandTotal")
+                    b.Property<decimal?>("Discount")
                         .HasColumnType("decimal(8,2)");
 
                     b.Property<string>("Order_Id")
@@ -230,11 +200,13 @@ namespace POS_WebAPI.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Size")
-                        .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("varchar");
 
-                    b.Property<decimal>("Tax")
+                    b.Property<decimal>("SubTotal")
+                        .HasColumnType("decimal(8,2)");
+
+                    b.Property<decimal?>("Tax")
                         .HasColumnType("decimal(8,2)");
 
                     b.Property<decimal>("Total")
@@ -270,11 +242,21 @@ namespace POS_WebAPI.Migrations
                         .HasMaxLength(36)
                         .HasColumnType("varchar");
 
+                    b.Property<string>("Company_Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar");
+
                     b.Property<decimal>("Cost")
                         .HasColumnType("decimal(8,2)");
 
                     b.Property<DateTime>("Create_At")
                         .HasColumnType("datetime");
+
+                    b.Property<string>("Create_By")
+                        .IsRequired()
+                        .HasMaxLength(36)
+                        .HasColumnType("varchar");
 
                     b.Property<string>("Description")
                         .HasMaxLength(255)
@@ -286,6 +268,9 @@ namespace POS_WebAPI.Migrations
 
                     b.Property<bool>("Is_Deleted")
                         .HasColumnType("bit");
+
+                    b.Property<DateTime?>("Last_Update")
+                        .HasColumnType("datetime");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -310,9 +295,42 @@ namespace POS_WebAPI.Migrations
                     b.HasIndex("Code")
                         .IsUnique();
 
-                    b.HasIndex("Company_Id");
+                    b.HasIndex("Create_By");
 
                     b.ToTable("Products");
+                });
+
+            modelBuilder.Entity("POS_WebAPI.Models.EntityModel.Receipt", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasMaxLength(36)
+                        .HasColumnType("varchar");
+
+                    b.Property<decimal?>("Discount")
+                        .IsRequired()
+                        .HasColumnType("decimal(8,2)");
+
+                    b.Property<string>("Order_Id")
+                        .HasMaxLength(36)
+                        .HasColumnType("varchar");
+
+                    b.Property<string>("Reference")
+                        .HasMaxLength(36)
+                        .HasColumnType("varchar");
+
+                    b.Property<decimal>("Total")
+                        .HasColumnType("decimal(8,2)");
+
+                    b.Property<DateTime>("Transaction_Date")
+                        .HasColumnType("datetime");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Order_Id");
+
+                    b.HasIndex("Reference");
+
+                    b.ToTable("Receipts");
                 });
 
             modelBuilder.Entity("POS_WebAPI.Models.EntityModel.Role", b =>
@@ -342,6 +360,35 @@ namespace POS_WebAPI.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Roles");
+                });
+
+            modelBuilder.Entity("POS_WebAPI.Models.EntityModel.Section", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasMaxLength(36)
+                        .HasColumnType("varchar");
+
+                    b.Property<DateTime>("Create_At")
+                        .HasColumnType("datetime");
+
+                    b.Property<string>("Desctiption")
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar");
+
+                    b.Property<bool>("Is_Deleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Section");
                 });
 
             modelBuilder.Entity("POS_WebAPI.Models.EntityModel.SubCategory", b =>
@@ -412,39 +459,6 @@ namespace POS_WebAPI.Migrations
                     b.ToTable("SystemTypes");
                 });
 
-            modelBuilder.Entity("POS_WebAPI.Models.EntityModel.Table", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasMaxLength(36)
-                        .HasColumnType("varchar");
-
-                    b.Property<DateTime>("Create_At")
-                        .HasColumnType("datetime");
-
-                    b.Property<string>("Description")
-                        .HasMaxLength(255)
-                        .HasColumnType("varchar");
-
-                    b.Property<bool?>("Is_Deleted")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("varchar");
-
-                    b.Property<string>("Size")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Status")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Tables");
-                });
-
             modelBuilder.Entity("POS_WebAPI.Models.EntityModel.User", b =>
                 {
                     b.Property<string>("Id")
@@ -469,9 +483,10 @@ namespace POS_WebAPI.Migrations
                         .HasColumnType("datetime");
 
                     b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar");
 
-                    b.Property<int>("Gender")
+                    b.Property<int?>("Gender")
                         .HasColumnType("int");
 
                     b.Property<string>("Image")
@@ -479,9 +494,11 @@ namespace POS_WebAPI.Migrations
                         .HasColumnType("varchar");
 
                     b.Property<bool?>("Is_Deleted")
+                        .IsRequired()
                         .HasColumnType("bit");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("varchar");
 
@@ -497,6 +514,10 @@ namespace POS_WebAPI.Migrations
 
                     b.Property<int>("Status")
                         .HasColumnType("int");
+
+                    b.Property<string>("Token")
+                        .HasMaxLength(550)
+                        .HasColumnType("nvarchar");
 
                     b.Property<string>("UserName")
                         .IsRequired()
@@ -515,6 +536,40 @@ namespace POS_WebAPI.Migrations
                     b.ToTable("Users");
                 });
 
+            modelBuilder.Entity("POS_WebAPI.Models.EntityModel.UserLog", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasMaxLength(36)
+                        .HasColumnType("varchar");
+
+                    b.Property<int>("Action")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("Create_At")
+                        .HasColumnType("datetime");
+
+                    b.Property<string>("User_Id")
+                        .IsRequired()
+                        .HasMaxLength(36)
+                        .HasColumnType("varchar");
+
+                    b.Property<string>("User_Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar");
+
+                    b.Property<string>("User_Type")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("User_Id");
+
+                    b.ToTable("User_Logs", (string)null);
+                });
+
             modelBuilder.Entity("POS_WebAPI.Models.EntityModel.Company", b =>
                 {
                     b.HasOne("POS_WebAPI.Models.EntityModel.SystemType", "SystemType")
@@ -528,25 +583,17 @@ namespace POS_WebAPI.Migrations
 
             modelBuilder.Entity("POS_WebAPI.Models.EntityModel.Order", b =>
                 {
-                    b.HasOne("POS_WebAPI.Models.EntityModel.Customer", "Customer")
-                        .WithMany("Orders")
-                        .HasForeignKey("Customer_Id")
-                        .OnDelete(DeleteBehavior.NoAction);
-
-                    b.HasOne("POS_WebAPI.Models.EntityModel.Table", "Table")
-                        .WithMany("Orders")
-                        .HasForeignKey("Table_Id")
-                        .OnDelete(DeleteBehavior.NoAction);
-
                     b.HasOne("POS_WebAPI.Models.EntityModel.User", "User")
                         .WithMany("Orders")
-                        .HasForeignKey("User_Id")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
+                        .HasForeignKey("Reference_Id")
+                        .OnDelete(DeleteBehavior.NoAction);
 
-                    b.Navigation("Customer");
+                    b.HasOne("POS_WebAPI.Models.EntityModel.Section", "Section")
+                        .WithMany("Orders")
+                        .HasForeignKey("Section_Id")
+                        .OnDelete(DeleteBehavior.NoAction);
 
-                    b.Navigation("Table");
+                    b.Navigation("Section");
 
                     b.Navigation("User");
                 });
@@ -578,15 +625,32 @@ namespace POS_WebAPI.Migrations
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
-                    b.HasOne("POS_WebAPI.Models.EntityModel.Company", "Company")
+                    b.HasOne("POS_WebAPI.Models.EntityModel.User", "User")
                         .WithMany("Products")
-                        .HasForeignKey("Company_Id")
+                        .HasForeignKey("Create_By")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
-                    b.Navigation("Company");
-
                     b.Navigation("SubCategory");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("POS_WebAPI.Models.EntityModel.Receipt", b =>
+                {
+                    b.HasOne("POS_WebAPI.Models.EntityModel.Order", "Order")
+                        .WithMany("Receipts")
+                        .HasForeignKey("Order_Id")
+                        .OnDelete(DeleteBehavior.NoAction);
+
+                    b.HasOne("POS_WebAPI.Models.EntityModel.User", "User")
+                        .WithMany("Receipts")
+                        .HasForeignKey("Reference")
+                        .OnDelete(DeleteBehavior.NoAction);
+
+                    b.Navigation("Order");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("POS_WebAPI.Models.EntityModel.SubCategory", b =>
@@ -619,6 +683,17 @@ namespace POS_WebAPI.Migrations
                     b.Navigation("Role");
                 });
 
+            modelBuilder.Entity("POS_WebAPI.Models.EntityModel.UserLog", b =>
+                {
+                    b.HasOne("POS_WebAPI.Models.EntityModel.User", "User")
+                        .WithMany("UserLog")
+                        .HasForeignKey("User_Id")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("POS_WebAPI.Models.EntityModel.Category", b =>
                 {
                     b.Navigation("SubCategories");
@@ -626,19 +701,14 @@ namespace POS_WebAPI.Migrations
 
             modelBuilder.Entity("POS_WebAPI.Models.EntityModel.Company", b =>
                 {
-                    b.Navigation("Products");
-
                     b.Navigation("Users");
-                });
-
-            modelBuilder.Entity("POS_WebAPI.Models.EntityModel.Customer", b =>
-                {
-                    b.Navigation("Orders");
                 });
 
             modelBuilder.Entity("POS_WebAPI.Models.EntityModel.Order", b =>
                 {
                     b.Navigation("OrderDetails");
+
+                    b.Navigation("Receipts");
                 });
 
             modelBuilder.Entity("POS_WebAPI.Models.EntityModel.Product", b =>
@@ -651,6 +721,11 @@ namespace POS_WebAPI.Migrations
                     b.Navigation("Users");
                 });
 
+            modelBuilder.Entity("POS_WebAPI.Models.EntityModel.Section", b =>
+                {
+                    b.Navigation("Orders");
+                });
+
             modelBuilder.Entity("POS_WebAPI.Models.EntityModel.SubCategory", b =>
                 {
                     b.Navigation("Products");
@@ -661,14 +736,15 @@ namespace POS_WebAPI.Migrations
                     b.Navigation("Companies");
                 });
 
-            modelBuilder.Entity("POS_WebAPI.Models.EntityModel.Table", b =>
-                {
-                    b.Navigation("Orders");
-                });
-
             modelBuilder.Entity("POS_WebAPI.Models.EntityModel.User", b =>
                 {
                     b.Navigation("Orders");
+
+                    b.Navigation("Products");
+
+                    b.Navigation("Receipts");
+
+                    b.Navigation("UserLog");
                 });
 #pragma warning restore 612, 618
         }

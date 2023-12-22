@@ -13,7 +13,7 @@ namespace POS_WebAPI.DataMapper
                 .ForMember(dest => dest.Name, op => op.Condition(src => src.Name != null))
                 .ForMember(dest => dest.Code, opt => opt.Condition(src => src.Code != null))
                 .ForMember(dest => dest.NameKh, opt => opt.Condition(src => src.NameKh != null))
-                .ForMember(dest => dest.Company, opt => opt.Condition(src => src.Company != null))
+               // .ForMember(dest => dest.Company, opt => opt.Condition(src => src.Company != null))
                 .ForMember(dest => dest.SubCategory, opt => opt.Condition(src => src.SubCategory != null))
                 .ForMember(dest => dest.Image, opt => opt.Condition(src => src.Image != null))
                 .ForMember(dest => dest.Cost, opt => opt.Condition(src => src.Cost != null))

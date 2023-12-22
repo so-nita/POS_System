@@ -9,7 +9,7 @@ using POS_WebAPI.Models.RequestModel.SubCategory;
 
 namespace POS_WebAPI.Controllers
 {
-    [ApiController] [Route("subcategory")]
+    [ApiController] [Route("api/subcategory")]
     public class SubCategoryController : Controller
     {
         private readonly ISubCategoryService _service;
