@@ -21,6 +21,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Update="UserControls\UC_Receipt\UC_Receipt.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -31,7 +34,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Components\UserControlls\" />
+    <Folder Include="Test\" />
   </ItemGroup>
 
 </Project>

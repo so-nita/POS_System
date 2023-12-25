@@ -42,7 +42,7 @@ partial class UC_ProductForCart
         // picProduct
         // 
         picProduct.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-        picProduct.Image = Properties.Resources.Food_img;
+        picProduct.Image = Properties.Resources.Food_img1;
         picProduct.Location = new Point(1, 1);
         picProduct.Name = "picProduct";
         picProduct.Size = new Size(54, 54);

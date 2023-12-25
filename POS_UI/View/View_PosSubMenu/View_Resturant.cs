@@ -2,6 +2,7 @@
 using POS_UI.Components.CustomeStyle;
 using POS_UI.Model;
 using POS_UI.Model.Constant;
+using POS_UI.Test;
 using POS_UI.UserControls;
 using POS_UI.View.Receipt;
 using ReaLTaiizor.Controls;
@@ -53,6 +54,7 @@ public partial class View_Resturant : Form
             CreateButtonCategory(item);
         }
     }
+    //private void 
     private void CreateButtonCategory(Item item)
     {
         var btnCategory = new RoyalButton();
@@ -88,7 +90,6 @@ public partial class View_Resturant : Form
             new Product(){ Id="12", Name = "Product-011", Price=5.5M },
             new Product(){ Id="13", Name = "Product-012", Price=1.3M },
         };
-        var t = Products.Count();
         if (Products.Count > 0)
         {
             foreach (var item in Products)
@@ -139,7 +140,7 @@ public partial class View_Resturant : Form
         {
             if (control is UC_ProductForCart productForCart &&
                 productForCart != null &&
-                productForCart.GetProduct != null &&
+                productForCart.GetProduct != null && 
                 productForCart.GetProduct.ProductId == productId)
             {
                 productForCart.UpdateQuantityLabel();
@@ -175,14 +176,15 @@ public partial class View_Resturant : Form
     {
         if (Carts.OrderDetails.Any())
         {
-            var receipt = new UC_ResturantReceipt(GetReceipt);
+            //var receipt = new UC_ResturantReceipt(GetReceipt);
+            var receipt = new UC_Receipt(GetReceipt);
 
             this.Controls.Add(receipt);
             Printer.PrintReceipt(receipt);
         }
         else
         {
-            MessageBox.Show("Select item to cart.");
+            MessageBox.Show("Please Select item to cart.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
     // Return Data of Order 
@@ -190,16 +192,16 @@ public partial class View_Resturant : Form
     {
         get
         {
-            var subTotal = Carts.OrderDetails.Sum(e => e.Price * e.Qty);
-            var tax = (subTotal != 0) ? Carts.Tax * subTotal / 100 : 0.00m;
-            var total = (subTotal != 0) ? subTotal - (Carts.Discount / 100) + tax : 0.00m;
+            decimal subTotal = Carts.OrderDetails.Sum(e => e.Price * e.Qty);
+            decimal tax = (subTotal != 0) ? Carts.Tax * subTotal / 100 : 0.00m;
+            decimal total = (subTotal != 0) ? subTotal+tax : 0.00m;
             return new OrderReq()
             {
                 SubTotal = subTotal,
                 Discount = 0,
                 Tax = tax,
-                Total = (decimal)total!,
-                TotalKhr = (decimal)(total * 4000),
+                Total = total,
+                TotalKhr = total * 4000,
                 OrderDate = DateTime.Now,
                 OrderDetails = Carts.OrderDetails,
             };
@@ -249,7 +251,7 @@ public partial class View_Resturant : Form
         }
         else
         {
-            MessageBox.Show("Select items to cart before holding the order.");
+            MessageBox.Show("Select items to cart before holding the order.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
     private void ClearCurrentOrder()

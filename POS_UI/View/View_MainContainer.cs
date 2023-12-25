@@ -4,6 +4,9 @@ namespace POS_UI.View;
 
 public partial class View_MainContainer : Form
 {
+    private int minWidthSize = 1200;
+    private int maxWidthSize = 1305;
+
     public View_MainContainer()
     {
         InitializeComponent();
@@ -12,7 +15,7 @@ public partial class View_MainContainer : Form
 
     private void AddController(Form form)
     {
-        /*if (this.centerPanel.Controls.Count > 1)
+        /*if (this.centerPanel.Controls.Count > 1) 
         {
             this.centerPanel.Controls.Clear();
         }*/
@@ -71,11 +74,35 @@ public partial class View_MainContainer : Form
 
     private void btnMenuBar_Click(object sender, EventArgs e)
     {
-
+        // CollapseMenu();
     }
     // 
     private void CollapseMenu()
     {
-
+        if (this.panelMenuLeft.Width > 200) // Callapse the Panel
+        {
+            panelMenuLeft.Width = 70;
+            foreach (Button menuButton in panelMenuLeft.Controls.OfType<Button>())
+            {
+                menuButton.Text = "";
+                menuButton.ImageAlign = ContentAlignment.MiddleCenter;
+                panelMenuLeft.Padding = new Padding(0, 20, 0, 0);
+            }
+            this.Width = minWidthSize;
+            this.StartPosition = FormStartPosition.CenterScreen;
+        }
+        else // Expand the Panel
+        {
+            panelMenuLeft.Width = 203;
+            panelMenuLeft.Visible = true;
+            panelMenuLeft.Padding = new Padding(0, 10, 0, 0);
+            foreach (Button menuButton in panelMenuLeft.Controls.OfType<Button>())
+            {
+                menuButton.Text = "   " + menuButton.Tag!.ToString();
+                menuButton.ImageAlign = ContentAlignment.MiddleLeft;
+            }
+            this.StartPosition = FormStartPosition.CenterScreen;
+            this.Width = maxWidthSize;
+        }
     }
 }

@@ -363,7 +363,7 @@
             bunifuFlatButton1.DisabledColor = Color.Gray;
             bunifuFlatButton1.Font = new Font("Segoe UI", 8.25F, FontStyle.Bold, GraphicsUnit.Point);
             bunifuFlatButton1.Iconcolor = Color.Transparent;
-            bunifuFlatButton1.Iconimage = Properties.Resources.icon_cart_white2;
+            bunifuFlatButton1.Iconimage = Properties.Resources.icon_cart_white;
             bunifuFlatButton1.Iconimage_right = null;
             bunifuFlatButton1.Iconimage_right_Selected = null;
             bunifuFlatButton1.Iconimage_Selected = null;
@@ -401,7 +401,7 @@
             bunifuFlatButtonHold.DisabledColor = Color.Gray;
             bunifuFlatButtonHold.Font = new Font("Segoe UI", 8.25F, FontStyle.Bold, GraphicsUnit.Point);
             bunifuFlatButtonHold.Iconcolor = Color.Transparent;
-            bunifuFlatButtonHold.Iconimage = Properties.Resources.icon_cart_white2;
+            bunifuFlatButtonHold.Iconimage = Properties.Resources.icon_cart_white;
             bunifuFlatButtonHold.Iconimage_right = null;
             bunifuFlatButtonHold.Iconimage_right_Selected = null;
             bunifuFlatButtonHold.Iconimage_Selected = null;
@@ -779,7 +779,7 @@
         private ReaLTaiizor.Controls.CyberButton cyberButton3;
         private ReaLTaiizor.Controls.CyberButton cyberButtonCookie;
         private ReaLTaiizor.Controls.CyberButton cyberButton2;
-        private UserControls.UC_Mart.UC_ViewCard_Order uC_ViewCard_Order5;
+        //private UserControls.UC_Mart.UC_ViewCard_Order uC_ViewCard_Order5;
         private Panel panelCardTotal;
         private Panel panelMenuOrder;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButtonHold;

@@ -78,7 +78,7 @@
             btnMenuBar.BackColor = Color.Transparent;
             btnMenuBar.BackgroundImageLayout = ImageLayout.Center;
             btnMenuBar.Image = Properties.Resources.align_justify_48px;
-            btnMenuBar.Location = new Point(203, -1);
+            btnMenuBar.Location = new Point(208, 1);
             btnMenuBar.Name = "btnMenuBar";
             btnMenuBar.Size = new Size(35, 44);
             btnMenuBar.SizeMode = PictureBoxSizeMode.Zoom;
@@ -93,7 +93,7 @@
             panel1.Location = new Point(0, 0);
             panel1.Margin = new Padding(0, 3, 3, 3);
             panel1.Name = "panel1";
-            panel1.Size = new Size(199, 48);
+            panel1.Size = new Size(202, 48);
             panel1.TabIndex = 0;
             // 
             // label1
@@ -134,7 +134,6 @@
             // 
             // panelMenuLeft
             // 
-            panelMenuLeft.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             panelMenuLeft.BackColor = Color.White;
             panelMenuLeft.BorderRadius = 0;
             panelMenuLeft.BottomSahddow = true;
@@ -146,16 +145,17 @@
             panelMenuLeft.Controls.Add(bunifuFlatButton1);
             panelMenuLeft.Controls.Add(btnMenuPOSView);
             panelMenuLeft.Controls.Add(bunifuFlatButton2);
+            panelMenuLeft.Dock = DockStyle.Left;
             panelMenuLeft.IndicatorColor = Color.White;
             panelMenuLeft.LeftSahddow = false;
             panelMenuLeft.LeftShadow = false;
-            panelMenuLeft.Location = new Point(0, 47);
+            panelMenuLeft.Location = new Point(0, 48);
             panelMenuLeft.Margin = new Padding(0);
             panelMenuLeft.Name = "panelMenuLeft";
             panelMenuLeft.RightSahddow = true;
             panelMenuLeft.RightShadow = true;
             panelMenuLeft.ShadowDepth = 20;
-            panelMenuLeft.Size = new Size(200, 693);
+            panelMenuLeft.Size = new Size(200, 692);
             panelMenuLeft.TabIndex = 14;
             // 
             // bunifuFlatButton3
@@ -185,10 +185,11 @@
             bunifuFlatButton3.Name = "bunifuFlatButton3";
             bunifuFlatButton3.Normalcolor = Color.White;
             bunifuFlatButton3.OnHovercolor = Color.FromArgb(77, 136, 255);
-            bunifuFlatButton3.OnHoverTextColor = Color.White;
+            bunifuFlatButton3.OnHoverTextColor = Color.Black;
             bunifuFlatButton3.selected = false;
             bunifuFlatButton3.Size = new Size(200, 50);
             bunifuFlatButton3.TabIndex = 7;
+            bunifuFlatButton3.Tag = "Setting";
             bunifuFlatButton3.Text = "       Setting";
             bunifuFlatButton3.TextAlign = ContentAlignment.MiddleLeft;
             bunifuFlatButton3.Textcolor = Color.Black;
@@ -221,11 +222,12 @@
             bunifuFlatButton5.Name = "bunifuFlatButton5";
             bunifuFlatButton5.Normalcolor = Color.White;
             bunifuFlatButton5.OnHovercolor = Color.FromArgb(77, 136, 255);
-            bunifuFlatButton5.OnHoverTextColor = Color.White;
+            bunifuFlatButton5.OnHoverTextColor = Color.Black;
             bunifuFlatButton5.Padding = new Padding(30, 0, 0, 0);
             bunifuFlatButton5.selected = false;
             bunifuFlatButton5.Size = new Size(200, 50);
             bunifuFlatButton5.TabIndex = 5;
+            bunifuFlatButton5.Tag = "Report";
             bunifuFlatButton5.Text = "       Report";
             bunifuFlatButton5.TextAlign = ContentAlignment.MiddleLeft;
             bunifuFlatButton5.Textcolor = Color.Black;
@@ -272,11 +274,12 @@
             btnSubMenuStore.Name = "btnSubMenuStore";
             btnSubMenuStore.Normalcolor = Color.White;
             btnSubMenuStore.OnHovercolor = Color.FromArgb(77, 136, 255);
-            btnSubMenuStore.OnHoverTextColor = Color.White;
+            btnSubMenuStore.OnHoverTextColor = Color.Black;
             btnSubMenuStore.Padding = new Padding(30, 0, 0, 0);
             btnSubMenuStore.selected = false;
             btnSubMenuStore.Size = new Size(200, 45);
             btnSubMenuStore.TabIndex = 4;
+            btnSubMenuStore.Tag = "Store";
             btnSubMenuStore.Text = "                 Store";
             btnSubMenuStore.TextAlign = ContentAlignment.MiddleLeft;
             btnSubMenuStore.Textcolor = Color.Black;
@@ -310,10 +313,11 @@
             btnSubMenuMart.Name = "btnSubMenuMart";
             btnSubMenuMart.Normalcolor = Color.White;
             btnSubMenuMart.OnHovercolor = Color.FromArgb(77, 136, 255);
-            btnSubMenuMart.OnHoverTextColor = Color.White;
+            btnSubMenuMart.OnHoverTextColor = Color.Black;
             btnSubMenuMart.selected = false;
             btnSubMenuMart.Size = new Size(200, 45);
             btnSubMenuMart.TabIndex = 3;
+            btnSubMenuMart.Tag = "Mart";
             btnSubMenuMart.Text = "                 Mart";
             btnSubMenuMart.TextAlign = ContentAlignment.MiddleLeft;
             btnSubMenuMart.Textcolor = Color.Black;
@@ -347,11 +351,12 @@
             btnSubMenuResturant.Name = "btnSubMenuResturant";
             btnSubMenuResturant.Normalcolor = Color.White;
             btnSubMenuResturant.OnHovercolor = Color.FromArgb(77, 136, 255);
-            btnSubMenuResturant.OnHoverTextColor = Color.White;
+            btnSubMenuResturant.OnHoverTextColor = Color.Black;
             btnSubMenuResturant.Padding = new Padding(30, 0, 0, 0);
             btnSubMenuResturant.selected = false;
             btnSubMenuResturant.Size = new Size(200, 45);
             btnSubMenuResturant.TabIndex = 2;
+            btnSubMenuResturant.Tag = "Resturant";
             btnSubMenuResturant.Text = "                 Resturant";
             btnSubMenuResturant.TextAlign = ContentAlignment.MiddleLeft;
             btnSubMenuResturant.Textcolor = Color.Black;
@@ -362,14 +367,14 @@
             // 
             bunifuFlatButton1.Active = false;
             bunifuFlatButton1.Activecolor = Color.White;
-            bunifuFlatButton1.BackColor = Color.FromArgb(77, 136, 255);
+            bunifuFlatButton1.BackColor = Color.White;
             bunifuFlatButton1.BackgroundImageLayout = ImageLayout.Zoom;
             bunifuFlatButton1.BorderRadius = 0;
             bunifuFlatButton1.ButtonText = "       Home";
             bunifuFlatButton1.DisabledColor = Color.Gray;
             bunifuFlatButton1.Dock = DockStyle.Bottom;
             bunifuFlatButton1.Iconcolor = Color.Transparent;
-            bunifuFlatButton1.Iconimage = Properties.Resources.icon_home_unfill;
+            bunifuFlatButton1.Iconimage = Properties.Resources.icon_logout;
             bunifuFlatButton1.Iconimage_right = null;
             bunifuFlatButton1.Iconimage_right_Selected = null;
             bunifuFlatButton1.Iconimage_Selected = null;
@@ -378,21 +383,22 @@
             bunifuFlatButton1.IconRightVisible = true;
             bunifuFlatButton1.IconRightZoom = 0D;
             bunifuFlatButton1.IconVisible = true;
-            bunifuFlatButton1.IconZoom = 60D;
+            bunifuFlatButton1.IconZoom = 48D;
             bunifuFlatButton1.IsTab = false;
-            bunifuFlatButton1.Location = new Point(0, 643);
+            bunifuFlatButton1.Location = new Point(0, 642);
             bunifuFlatButton1.Margin = new Padding(0);
             bunifuFlatButton1.Name = "bunifuFlatButton1";
-            bunifuFlatButton1.Normalcolor = Color.FromArgb(77, 136, 255);
-            bunifuFlatButton1.OnHovercolor = Color.White;
-            bunifuFlatButton1.OnHoverTextColor = Color.FromArgb(77, 136, 255);
+            bunifuFlatButton1.Normalcolor = Color.White;
+            bunifuFlatButton1.OnHovercolor = Color.FromArgb(77, 136, 255);
+            bunifuFlatButton1.OnHoverTextColor = Color.Black;
             bunifuFlatButton1.Padding = new Padding(30, 0, 0, 0);
             bunifuFlatButton1.selected = false;
             bunifuFlatButton1.Size = new Size(200, 50);
             bunifuFlatButton1.TabIndex = 4;
+            bunifuFlatButton1.Tag = "Home";
             bunifuFlatButton1.Text = "       Home";
             bunifuFlatButton1.TextAlign = ContentAlignment.MiddleLeft;
-            bunifuFlatButton1.Textcolor = Color.White;
+            bunifuFlatButton1.Textcolor = Color.Black;
             bunifuFlatButton1.TextFont = new Font("Segoe UI", 12.5F, FontStyle.Regular, GraphicsUnit.Point, 0);
             // 
             // btnMenuPOSView
@@ -444,7 +450,7 @@
             bunifuFlatButton2.DisabledColor = Color.Gray;
             bunifuFlatButton2.Dock = DockStyle.Top;
             bunifuFlatButton2.Iconcolor = Color.Transparent;
-            bunifuFlatButton2.Iconimage = Properties.Resources.home_unfill_blue2;
+            bunifuFlatButton2.Iconimage = Properties.Resources.home_unfill_blue;
             bunifuFlatButton2.Iconimage_right = null;
             bunifuFlatButton2.Iconimage_right_Selected = null;
             bunifuFlatButton2.Iconimage_Selected = null;
@@ -460,7 +466,7 @@
             bunifuFlatButton2.Name = "bunifuFlatButton2";
             bunifuFlatButton2.Normalcolor = Color.White;
             bunifuFlatButton2.OnHovercolor = Color.FromArgb(77, 136, 255);
-            bunifuFlatButton2.OnHoverTextColor = Color.White;
+            bunifuFlatButton2.OnHoverTextColor = Color.Black;
             bunifuFlatButton2.selected = false;
             bunifuFlatButton2.Size = new Size(200, 50);
             bunifuFlatButton2.TabIndex = 0;
@@ -471,11 +477,11 @@
             // 
             // centerPanel
             // 
-            centerPanel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             centerPanel.BackColor = Color.White;
-            centerPanel.Location = new Point(201, 48);
+            centerPanel.Dock = DockStyle.Fill;
+            centerPanel.Location = new Point(200, 48);
             centerPanel.Name = "centerPanel";
-            centerPanel.Size = new Size(1102, 693);
+            centerPanel.Size = new Size(1104, 692);
             centerPanel.TabIndex = 15;
             // 
             // View_MainContainer

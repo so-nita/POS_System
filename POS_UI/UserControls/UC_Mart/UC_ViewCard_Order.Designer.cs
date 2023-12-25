@@ -133,7 +133,7 @@ namespace POS_UI.UserControls.UC_Mart
             // pictureBoxCardOrder
             // 
             pictureBoxCardOrder.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBoxCardOrder.Image = Properties.Resources.orio1;
+            pictureBoxCardOrder.Image = Properties.Resources.Food_img1;
             pictureBoxCardOrder.Location = new Point(0, 0);
             pictureBoxCardOrder.Name = "pictureBoxCardOrder";
             pictureBoxCardOrder.Size = new Size(64, 54);

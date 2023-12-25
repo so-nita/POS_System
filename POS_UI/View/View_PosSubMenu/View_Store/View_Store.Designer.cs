@@ -256,7 +256,7 @@ partial class View_Store
         button1.EnteredBorderColor = Color.FromArgb(165, 37, 37);
         button1.EnteredColor = Color.FromArgb(77, 136, 255);
         button1.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-        button1.Image = Properties.Resources.icon_cart_white2;
+        button1.Image = Properties.Resources.icon_cart_white;
         button1.ImageAlign = ContentAlignment.MiddleLeft;
         button1.InactiveColor = Color.CornflowerBlue;
         button1.Location = new Point(233, 8);

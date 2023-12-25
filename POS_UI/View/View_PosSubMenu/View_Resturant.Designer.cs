@@ -239,9 +239,9 @@
             bigLabel4.ForeColor = Color.FromArgb(0, 89, 179);
             bigLabel4.Location = new Point(8, 48);
             bigLabel4.Name = "bigLabel4";
-            bigLabel4.Size = new Size(40, 20);
+            bigLabel4.Size = new Size(78, 20);
             bigLabel4.TabIndex = 6;
-            bigLabel4.Text = "Tax : ";
+            bigLabel4.Text = "Tax (10%) : ";
             // 
             // bigLabel6
             // 
@@ -282,15 +282,12 @@
             // panelCart
             // 
             panelCart.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
+            panelCart.AutoScroll = true;
             panelCart.Location = new Point(0, 46);
             panelCart.Name = "panelCart";
             panelCart.Padding = new Padding(6, 0, 0, 0);
             panelCart.Size = new Size(354, 416);
             panelCart.TabIndex = 1;
-            panelCart.AutoScroll = false;
-            //panelCart.VerticalScroll.Maximum = 10;
-            panelCart.HorizontalScroll.Maximum = 0;
-            panelCart.AutoScroll = true;
             // 
             // panel1
             // 
@@ -314,7 +311,7 @@
             btnHold.ButtonText = " Hold ";
             btnHold.DisabledColor = Color.Gray;
             btnHold.Iconcolor = Color.Transparent;
-            btnHold.Iconimage = Properties.Resources.icon_cart_white2;
+            btnHold.Iconimage = Properties.Resources.icon_cart_white;
             btnHold.Iconimage_right = null;
             btnHold.Iconimage_right_Selected = null;
             btnHold.Iconimage_Selected = null;
@@ -442,7 +439,7 @@
        // private ReaLTaiizor.Controls.BigLabel lableDiscount;
         private ReaLTaiizor.Controls.BigLabel lableSubTotal;
         private ReaLTaiizor.Controls.BigLabel lableDiscount;
-        private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton3;
+        //private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton3;
         private Bunifu.Framework.UI.BunifuFlatButton btnPrint;
         private Bunifu.Framework.UI.BunifuFlatButton btnHold;
     }
