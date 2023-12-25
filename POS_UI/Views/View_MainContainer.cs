@@ -12,7 +12,7 @@ public partial class View_MainContainer : Form
         InitializeComponent();
         CustomeDesign();
     }
-
+    
     private void AddController(Form form)
     {
         /*if (this.centerPanel.Controls.Count > 1) 
@@ -25,9 +25,11 @@ public partial class View_MainContainer : Form
         this.centerPanel.Controls.Add(form);
         form.Show();
     }
+
     private void CustomeDesign()
     {
         panelSubMenuPOSView.Visible = false;
+
         CollapseMenu();
     }
     private void hideSubMenu()
@@ -46,7 +48,7 @@ public partial class View_MainContainer : Form
             subMenu.Visible = false;
         }
     }
-    
+
     private void btnMenuPOSView_Click(object sender, EventArgs e)
     {
         ShowSubMenu(panelSubMenuPOSView);
@@ -103,6 +105,18 @@ public partial class View_MainContainer : Form
             }
             this.StartPosition = FormStartPosition.CenterScreen;
             this.Width = maxWidthSize;
+        }
+    }
+
+    private void nightControlBox1_Click(object sender, EventArgs e)
+    {
+        if (centerPanel.Width < 1150)
+        {
+            centerPanel.Padding = new Padding(10, 10, 15, 10);
+        }
+        else
+        {
+            centerPanel.Padding = new Padding(0, 0, 0, 0);
         }
     }
 }

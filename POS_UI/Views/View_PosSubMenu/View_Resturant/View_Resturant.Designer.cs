@@ -375,13 +375,12 @@
             // 
             // bigLabel2
             // 
-            bigLabel2.AutoSize = true;
             bigLabel2.BackColor = Color.Transparent;
             bigLabel2.Font = new Font("Segoe UI Semibold", 11.5F, FontStyle.Bold, GraphicsUnit.Point, 0);
             bigLabel2.ForeColor = Color.FromArgb(0, 89, 179);
             bigLabel2.Location = new Point(84, 10);
             bigLabel2.Name = "bigLabel2";
-            bigLabel2.Size = new Size(55, 21);
+            bigLabel2.Size = new Size(92, 21);
             bigLabel2.TabIndex = 1;
             bigLabel2.Text = "#3352";
             // 

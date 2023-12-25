@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace POS_UI.Controller
+namespace POS_UI.Models.Constant
 {
-    public class ProductController
+    public enum StatusResponse
     {
-
+        Success = 200,
+        Error = 400,
     }
 }

@@ -1,5 +1,4 @@
 ﻿using POS_UI.Model;
-using System.Runtime.InteropServices;
 
 namespace POS_UI.Test;
 
@@ -29,7 +28,6 @@ public partial class UC_Receipt : UserControl
             foreach (var product in _receipt.Order.OrderDetails)
             {
                 DataGridViewRow row = new DataGridViewRow();
-                //itemDataGridView.Height = itemDataGridView.Columns.Count;
                 row.CreateCells(itemDataGridView);
 
                 var itemTotal = (product.Qty * product.Price) - (product.Discount / 100);
@@ -45,11 +43,11 @@ public partial class UC_Receipt : UserControl
             labelOrderId.Text = _receipt.Code;
             labelCahierName.Text = "So Nita";
             labelOrderDate.Text = order.OrderDate.ToString();
-            lableSubTotal.Text = order.SubTotal.ToString();
-            labelPaidAmout.Text = order.Total.ToString();
-            labelAmountKhr.Text = order.TotalKhr.ToString("#,##0.00");
-            labelReceivedAmount.Text = _receipt.Total.ToString();
-            labelReceivedAmount.Text = "0.00";
+            lableSubTotal.Text = "$ " + order.SubTotal.ToString();
+            labelPaidAmout.Text = "$ " + order.Total.ToString();
+            labelAmountKhr.Text =  order.TotalKhr.ToString("#,##0.00");
+            labelReceivedAmount.Text = "$ " + order.Total.ToString();
+            labelRemainAmount.Text = order.Remain.ToString();
         }
     }
 

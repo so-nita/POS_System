@@ -131,6 +131,7 @@
             nightControlBox1.Name = "nightControlBox1";
             nightControlBox1.Size = new Size(139, 31);
             nightControlBox1.TabIndex = 12;
+            nightControlBox1.Click += nightControlBox1_Click;
             // 
             // panelMenuLeft
             // 

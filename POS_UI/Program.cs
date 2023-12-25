@@ -1,7 +1,8 @@
 using OfficeOpenXml;
 using POS_UI.Components;
+using POS_UI.Service;
 using POS_UI.View;
-using POS_UI.View.Receipt;
+using POS_UI.View.View_PosSubMenu;
 
 namespace POS_UI
 {
@@ -12,15 +13,18 @@ namespace POS_UI
         {
             ApplicationConfiguration.Initialize();
 
-            //Application.Run(new View_Mart());
-             Application.Run(new View_MainContainer());
+            Application.Run(new View_Resturant());
+            // Application.Run(new View_MainContainer());
 
             /*ExcelPackage.LicenseContext = LicenseContext.NonCommercial;  
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);*/
 
             //Application.Run(new Test());
-             
+
+            
+
         }
+        
     }
 }

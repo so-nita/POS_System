@@ -15,6 +15,8 @@ namespace POS_UI.Model
         public decimal TotalKhr { get; set; }
         public decimal Tax { get; set; } = 10;
         public decimal Total { get; set; } = 0.00m;
+        public decimal Received { get; set; } = 0.00m;
+        public decimal? Remain { get;set; }
         public List<OrderDetailReq> OrderDetails { get; set; }= new();
     }
 }

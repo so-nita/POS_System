@@ -129,4 +129,3 @@ D:\Work\Project\POS_System\POS_UI\bin\Debug\net8.0-windows\Microsoft.Extensions.
 D:\Work\Project\POS_System\POS_UI\bin\Debug\net8.0-windows\Microsoft.IO.RecyclableMemoryStream.dll
 D:\Work\Project\POS_System\POS_UI\obj\Debug\net8.0-windows\POS_UI.UserControls.UC_Mart.UC_ViewCard_SubTotal.resources
 D:\Work\Project\POS_System\POS_UI\obj\Debug\net8.0-windows\POS_UI.Test.UC_Receipt.resources
-D:\Work\Project\POS_System\POS_UI\obj\Debug\net8.0-windows\POS_UI.View.Receipt.UC_ResturantReceipt.resources

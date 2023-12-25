@@ -19,25 +19,22 @@
     <Compile Update="UserControls\UC_Resturant\UC_ProuductCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="View\View_PosSubMenu\View_Mart.cs">
+    <Compile Update="Views\View_PosSubMenu\view_Mart\View_Mart.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="View\View_PosSubMenu\View_Store\View_Store.cs">
+    <Compile Update="Views\View_PosSubMenu\View_Store\View_Store.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="View\View_Receipt\UC_ResturantReceipt.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="View\Test.cs">
+    <Compile Update="Views\Test.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="View\View_MainContainer.cs">
+    <Compile Update="Views\View_MainContainer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="View\View_PosSubMenu\View_Resturant.cs">
+    <Compile Update="Views\View_PosSubMenu\View_Resturant\View_Resturant.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="View\View_Product.cs">
+    <Compile Update="Views\View_Product.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="UserControls\UC_Resturant\UC_ProductForCart.cs">

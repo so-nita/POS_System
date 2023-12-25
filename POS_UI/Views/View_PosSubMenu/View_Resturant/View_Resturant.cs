@@ -2,9 +2,9 @@
 using POS_UI.Components.CustomeStyle;
 using POS_UI.Model;
 using POS_UI.Model.Constant;
+using POS_UI.Service;
 using POS_UI.Test;
 using POS_UI.UserControls;
-using POS_UI.View.Receipt;
 using ReaLTaiizor.Controls;
 
 namespace POS_UI.View.View_PosSubMenu;
@@ -21,16 +21,29 @@ public partial class View_Resturant : Form
     {
         InitializeComponent();
         InitializeData();
+        this.Resize += View_Resturant_Resize!;
+    }
+    private void View_Resturant_Resize(object sender, EventArgs e)
+    {
+        AdjustPadding(this.Width);
     }
 
+    public void AdjustPadding(int parentFormWidth)
+    {
+        if (parentFormWidth > 1250)
+        {
+            panelListProduct.Padding = new Padding(18,0,0,0);
+        }
+    }
     private void InitializeData()
     {
-        InitListProduct();
+        InitListProductAsync();
         productTouchScroll = new CustomTouchScroll(panelCategory, ScrollDirection.Horizontal);
         cartTouchScroll = new CustomTouchScroll(panelCart, ScrollDirection.Vertical);
 
         InitButtonCategory();
     }
+
     private void InitButtonCategory()
     {
         panelCategory.Controls.Clear();
@@ -47,7 +60,7 @@ public partial class View_Resturant : Form
             new Item(){ Name = "Category#09" },
             new Item(){ Name = "Category#10" },
             new Item(){ Name = "Category#11" },
-            new Item(){ Name = "Category#12" },
+            new Item(){ Name = "Category#12" }
         };
         foreach (var item in products)
         {
@@ -72,10 +85,12 @@ public partial class View_Resturant : Form
         productTouchScroll.AssignScrollEvent(btnCategory);
     }
 
-    private void InitListProduct()
+    private async Task InitListProductAsync()
     {
+        var data = new ProductService();
+        Products = await data.GetAllAsync();
         var xOffSet = 0;
-        Products = new List<Product>(){
+       /* Products = new List<Product>(){
             new Product(){ Id="1",  Name = "Product-001", Price=2.2M },
             new Product(){ Id="2",  Name = "Product-002", Price=3.1M },
             new Product(){ Id="3",  Name = "Product-003", Price=1.2M },
@@ -89,7 +104,7 @@ public partial class View_Resturant : Form
             new Product(){ Id="11", Name = "Product-010", Price=3.4M },
             new Product(){ Id="12", Name = "Product-011", Price=5.5M },
             new Product(){ Id="13", Name = "Product-012", Price=1.3M },
-        };
+        };*/
         if (Products.Count > 0)
         {
             foreach (var item in Products)
@@ -203,6 +218,7 @@ public partial class View_Resturant : Form
                 Total = total,
                 TotalKhr = total * 4000,
                 OrderDate = DateTime.Now,
+                Received = total,
                 OrderDetails = Carts.OrderDetails,
             };
         }

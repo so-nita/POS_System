@@ -155,7 +155,7 @@
             // 
             // label1
             // 
-            label1.Font = new Font("Segoe UI Semilight", 10F);
+            label1.Font = new Font("Segoe UI Semilight", 9.5F);
             label1.Location = new Point(1, 37);
             label1.Name = "label1";
             label1.Size = new Size(245, 19);
