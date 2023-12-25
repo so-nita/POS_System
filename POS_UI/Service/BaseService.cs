@@ -1,7 +1,33 @@
-﻿namespace POS_UI.Service
+﻿using Newtonsoft.Json;
+
+namespace POS_UI.Service;
+
+public abstract class BaseService
 {
-    public class BaseService
+    protected readonly HttpClient _httpClient;
+
+    protected BaseService()
     {
-        public static string BaseUrl = "http://sonitab-001-site1.atempurl.com/api/product";
+        _httpClient = HttpClientManager.GetClient();
+    }
+
+    protected async Task<T> GetAsync<T>(string url)
+    {
+        try
+        {
+            var response = await _httpClient.GetAsync(url);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var jsonString = await response.Content.ReadAsStringAsync();
+                return JsonConvert.DeserializeObject<T>(jsonString)!;
+            }
+
+            return default!;
+        }
+        catch (Exception ex)
+        {
+            return default!;
+        }
     }
 }

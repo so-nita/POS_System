@@ -1,5 +1,4 @@
-﻿using POS_UI.Model;
-using POS_UI.View;
+﻿using POS_UI.View;
 using POS_UI.View.View_PosSubMenu;
 using System;
 using System.Collections.Generic;

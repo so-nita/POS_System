@@ -1,5 +1,4 @@
-﻿using POS_UI.Model;
-using POS_UI.UserControls;
+﻿using POS_UI.UserControls;
 using POS_UI.UserControls.UC_Mart;
 using ReaLTaiizor.Extension;
 using System;

@@ -1,4 +1,4 @@
-﻿using POS_UI.Model;
+﻿using POS_UI.Models.Product;
 using POS_UI.UserControls;
 using POS_UI.UserControls.CardItem;
 using System;
@@ -15,8 +15,8 @@ namespace POS_UI.View;
 
 public partial class View_Store : Form
 {
-    public List<Product> Products = new List<Product>();
-    public List<Product> Carts = new List<Product>();
+    public List<ProductResponse> Products = new List<ProductResponse>();
+    public List<ProductResponse> Carts = new List<ProductResponse>();
     public View_Store()
     {
         InitializeComponent();
@@ -25,20 +25,20 @@ public partial class View_Store : Form
     private void InitListProduct()
     {
         var xOffSet = 0;
-        Products = new List<Product>(){
-        new Product(){Id="1", Name = "Product-001", Price=2.2M },
-        new Product(){Id="2", Name = "Product-002", Price=3.1M },
-        new Product(){Id="3", Name = "Product-003", Price=1.2M },
-        new Product(){Id="4", Name = "Product-004", Price=5.6M },
-        new Product(){Id="5", Name = "Product-004", Price=4.4M },
-        new Product(){Id="6", Name = "Product-005", Price=1.2M },
-        new Product(){Id="7", Name = "Product-006", Price=6.5M },
-        new Product(){Id="8", Name = "Product-007", Price=6.1M },
-        new Product(){Id="9", Name = "Product-007", Price=3.3M },
-        new Product(){Id="10", Name = "Product-009", Price=1.1M },
-        new Product(){Id="11", Name = "Product-010", Price=3.4M },
-        new Product(){Id="12", Name = "Product-011", Price=5.5M },
-        new Product(){Id="13", Name = "Product-012", Price=1.3M },
+        Products = new List<ProductResponse>(){
+        new ProductResponse(){Id="1", Name = "Product-001", Price=2.2M },
+        new ProductResponse(){Id="2", Name = "Product-002", Price=3.1M },
+        new ProductResponse(){Id="3", Name = "Product-003", Price=1.2M },
+        new ProductResponse(){Id="4", Name = "Product-004", Price=5.6M },
+        new ProductResponse(){Id="5", Name = "Product-004", Price=4.4M },
+        new ProductResponse(){Id="6", Name = "Product-005", Price=1.2M },
+        new ProductResponse(){Id="7", Name = "Product-006", Price=6.5M },
+        new ProductResponse(){Id="8", Name = "Product-007", Price=6.1M },
+        new ProductResponse(){Id="9", Name = "Product-007", Price=3.3M },
+        new ProductResponse(){Id="10", Name = "Product-009", Price=1.1M },
+        new ProductResponse(){Id="11", Name = "Product-010", Price=3.4M },
+        new ProductResponse(){Id="12", Name = "Product-011", Price=5.5M },
+        new ProductResponse(){Id="13", Name = "Product-012", Price=1.3M },
     };
         var t = Products.Count();
         if (Products.Count > 0)
@@ -115,7 +115,7 @@ public partial class View_Store : Form
         lableTax.Text = "$ " + data.Tax.ToString("N2");
         lableTotal.Text = "$ " + data.Total.ToString("N2");
     }
-    public void RemoveProductFromPrice(Product product)
+    public void RemoveProductFromPrice(ProductResponse product)
     {
         Carts.Remove(product);
         CalculateTotal();

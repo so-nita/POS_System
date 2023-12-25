@@ -1,4 +1,4 @@
-﻿using POS_UI.Model;
+﻿using POS_UI.Models.Product;
 
 namespace POS_UI.UserControls;
 
@@ -6,9 +6,9 @@ public partial class UC_ProuductCard : UserControl
 {
     public event EventHandler ProductClicked;
 
-    private Product _product;
+    private ProductResponse _product;
 
-    public Product Product
+    public ProductResponse Product
     {
         get { return _product; }
         set
@@ -18,7 +18,7 @@ public partial class UC_ProuductCard : UserControl
         }
     }
 
-    public UC_ProuductCard(Product product = null!)
+    public UC_ProuductCard(ProductResponse product = null!)
     {
         InitializeComponent();
         Product = product;

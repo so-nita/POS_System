@@ -1,4 +1,4 @@
-﻿using POS_UI.Model;
+﻿using POS_UI.Models.Order;
 using POS_UI.View.View_PosSubMenu;
 
 namespace POS_UI.UserControls

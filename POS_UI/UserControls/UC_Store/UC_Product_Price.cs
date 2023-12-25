@@ -1,4 +1,4 @@
-﻿using POS_UI.Model;
+﻿using POS_UI.Models.Product;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,8 +15,8 @@ namespace POS_UI.UserControls.CardItem
     {
         public event EventHandler ProductClicked;
 
-        private Product _product;
-        public Product Product
+        private ProductResponse _product;
+        public ProductResponse Product
         {
             get { return _product; }
             set
@@ -25,7 +25,7 @@ namespace POS_UI.UserControls.CardItem
                 InitData();
             }
         }
-        public UC_Product_Price(Product product = null!)
+        public UC_Product_Price(ProductResponse product = null!)
         {
             InitializeComponent();
             Product = product;

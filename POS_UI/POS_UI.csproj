@@ -33,4 +33,12 @@
     </EmbeddedResource>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Models\Transaction\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\POS_WebAPI\POS_WebAPI.csproj" />
+  </ItemGroup>
+
 </Project>

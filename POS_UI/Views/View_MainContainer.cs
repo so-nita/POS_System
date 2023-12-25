@@ -13,7 +13,7 @@ public partial class View_MainContainer : Form
         CustomeDesign();
     }
     
-    private void AddController(Form form)
+    public void AddController(Form form)
     {
         /*if (this.centerPanel.Controls.Count > 1) 
         {

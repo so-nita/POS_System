@@ -1,34 +1,19 @@
-﻿using Newtonsoft.Json;
-using POS_UI.Model;
-using POS_UI.Models;
-using System.Text.Json;
+﻿using POS_UI.Models.Product;
+using POS_UI.Models.Response;
 
 namespace POS_UI.Service;
 
 public class ProductService : BaseService
 {
-    private readonly HttpClient _client;
-    public ProductService()
+    public async Task<List<ProductResponse>> GetAllAsync()
     {
-        _client = new HttpClient();
+        var url = "http://sonitab-001-site1.atempurl.com/api/product";
+        var data = await GetAsync<Response<ProductResponse>>(url);
+        return data?.Result ?? new List<ProductResponse>();
     }
-    public async Task<List<Product>> GetAllAsync()
+
+    public async Task<string> Create(ProductResponse response)
     {
-        try
-        {
-            var products = new List<Product>(); 
-            var response = await _client.GetAsync(BaseUrl); 
-            if(response.IsSuccessStatusCode)
-            {
-                var jsonString = await response.Content.ReadAsStringAsync();
-                var options = new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase };
-                var data = JsonConvert.DeserializeObject<Response<Product>>(jsonString);
-                products.AddRange(data.Result!);
-            }
-            return products;
-        }catch(Exception ex) 
-        {
-            return null!; 
-        }
+        return null!;
     }
 }

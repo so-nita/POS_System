@@ -1,21 +1,25 @@
 ﻿using POS_UI.Components;
 using POS_UI.Components.CustomeStyle;
-using POS_UI.Model;
-using POS_UI.Model.Constant;
+using POS_UI.Constant;
+using POS_UI.Models.Order;
+using POS_UI.Models.Product;
+using POS_UI.Models.Receipt;
+using POS_UI.Models.SubCategory;
 using POS_UI.Service;
 using POS_UI.Test;
 using POS_UI.UserControls;
+using POS_WebAPI.EntityConfiguration;
 using ReaLTaiizor.Controls;
+using System.Collections.Generic;
 
 namespace POS_UI.View.View_PosSubMenu;
 
 public partial class View_Resturant : Form
 {
-    public List<Product> Products = new List<Product>();
-    public OrderReq Carts = new();
-    private List<OrderReq> HeldOrders = new List<OrderReq>();
     private CustomTouchScroll productTouchScroll;
     private CustomTouchScroll cartTouchScroll;
+    public OrderReq Carts = new();
+    private List<OrderReq> HeldOrders = new List<OrderReq>();
 
     public View_Resturant()
     {
@@ -37,77 +41,46 @@ public partial class View_Resturant : Form
     }
     private void InitializeData()
     {
-        InitListProductAsync();
         productTouchScroll = new CustomTouchScroll(panelCategory, ScrollDirection.Horizontal);
         cartTouchScroll = new CustomTouchScroll(panelCart, ScrollDirection.Vertical);
 
-        InitButtonCategory();
+        LoadDataFromApiAsync();
     }
-
-    private void InitButtonCategory()
+    
+    private async Task LoadDataFromApiAsync()
     {
-        panelCategory.Controls.Clear();
-        var products = new List<Item>(){
-            new Item(){ Name = "Category#01" },
-            new Item(){ Name = "Category#02" },
-            new Item(){ Name = "Category#03" },
-            new Item(){ Name = "Category#04" },
-            new Item(){ Name = "Category#04" },
-            new Item(){ Name = "Category#05" },
-            new Item(){ Name = "Category#06" },
-            new Item(){ Name = "Category#07" },
-            new Item(){ Name = "Category#07" },
-            new Item(){ Name = "Category#09" },
-            new Item(){ Name = "Category#10" },
-            new Item(){ Name = "Category#11" },
-            new Item(){ Name = "Category#12" }
-        };
-        foreach (var item in products)
+        var productService = new ProductService();
+        var products = await productService.GetAllAsync();
+
+        var data = new SubCategoryService();
+        var subCategories = await data.GetAllAsync();
+
+        var selectedSubCategories = subCategories.Where(subCategory => products
+                                    .Any(product => product.CategoryId == subCategory.Id && product.Qty > 0))
+                                    .ToList();
+
+        InitButtonCategory(selectedSubCategories);
+
+        InitListProductAsync(products);
+    }
+    // List Button Sub Category 
+    private void InitButtonCategory(List<SubCategoryResponse> subCategories)
+    {
+        if (subCategories.Any())
         {
-            CreateButtonCategory(item);
+            foreach (var item in subCategories)
+            {
+                CreateButtonCategory(item);
+            }
         }
     }
-    //private void 
-    private void CreateButtonCategory(Item item)
+    // List All Product Card  
+    private void InitListProductAsync(List<ProductResponse> products)
     {
-        var btnCategory = new RoyalButton();
-        btnCategory.BackColor = Color.White;
-        btnCategory.BorderColor = Color.White;
-        btnCategory.BorderThickness = 3;
-        btnCategory.DrawBorder = false;
-        btnCategory.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-        btnCategory.ForeColor = Color.FromArgb(0, 89, 179);
-        btnCategory.Size = new Size(120, 50);
-        btnCategory.TabIndex = 12;
-        btnCategory.Text = item.Name;
-
-        panelCategory.Controls.Add(btnCategory);
-        productTouchScroll.AssignScrollEvent(btnCategory);
-    }
-
-    private async Task InitListProductAsync()
-    {
-        var data = new ProductService();
-        Products = await data.GetAllAsync();
         var xOffSet = 0;
-       /* Products = new List<Product>(){
-            new Product(){ Id="1",  Name = "Product-001", Price=2.2M },
-            new Product(){ Id="2",  Name = "Product-002", Price=3.1M },
-            new Product(){ Id="3",  Name = "Product-003", Price=1.2M },
-            new Product(){ Id="4",  Name = "Product-004", Price=5.6M },
-            new Product(){ Id="5",  Name = "Product-004", Price=4.4M },
-            new Product(){ Id="6",  Name = "Product-005", Price=1.2M },
-            new Product(){ Id="7",  Name = "Product-006", Price=6.5M },
-            new Product(){ Id="8",  Name = "Product-007", Price=6.1M },
-            new Product(){ Id="9",  Name = "Product-007", Price=3.3M },
-            new Product(){ Id="10", Name = "Product-009", Price=1.1M },
-            new Product(){ Id="11", Name = "Product-010", Price=3.4M },
-            new Product(){ Id="12", Name = "Product-011", Price=5.5M },
-            new Product(){ Id="13", Name = "Product-012", Price=1.3M },
-        };*/
-        if (Products.Count > 0)
+        if (products.Count > 0)
         {
-            foreach (var item in Products)
+            foreach (var item in products)
             {
                 var card = new UC_ProuductCard(item);
                 card.Location = new Point(xOffSet, 0);
@@ -117,7 +90,7 @@ public partial class View_Resturant : Form
             }
         }
     }
-
+    // Product Card click then add Product to cart
     private void prouductCard_Clicked(object sender, EventArgs e)
     {
         if (sender is UC_ProuductCard productCard)
@@ -149,6 +122,7 @@ public partial class View_Resturant : Form
             CalculateTotal();
         }
     }
+    // Update text of Product's Qty on Cart
     private void UpdateQuantityLabelInCart(string productId, int quantity)
     {
         foreach (Control control in panelCart.Controls)
@@ -163,17 +137,33 @@ public partial class View_Resturant : Form
             }
         }
     }
+    //  Create Button Category
+    private void CreateButtonCategory(SubCategoryResponse subCategory)
+    {
+        var btnCategory = new RoyalButton();
+        btnCategory.BackColor = Color.White;
+        btnCategory.BorderColor = Color.White;
+        btnCategory.BorderThickness = 3;
+        btnCategory.DrawBorder = false;
+        btnCategory.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+        btnCategory.ForeColor = Color.FromArgb(0, 89, 179);
+        btnCategory.Size = new Size(120, 50);
+        btnCategory.TabIndex = 12;
+        btnCategory.Text = subCategory.Name;
 
+        panelCategory.Controls.Add(btnCategory);
+        productTouchScroll.AssignScrollEvent(btnCategory);
+    }
+    // Method for sum 
     public void CalculateTotal()
     {
-        var test = Carts;
         if (Carts.OrderDetails.Any())
         {
-            InitProductTotal(GetOrder);
+            UpdateLableTotalOrder(GetOrder);
         }
     }
 
-    private void InitProductTotal(OrderReq data)
+    private void UpdateLableTotalOrder(OrderReq data)
     {
         lableSubTotal.Text = "$ " + data.SubTotal.ToString("N2");
         lableDiscount.Text = "$ " + data.Discount?.ToString("N2");
@@ -191,7 +181,6 @@ public partial class View_Resturant : Form
     {
         if (Carts.OrderDetails.Any())
         {
-            //var receipt = new UC_ResturantReceipt(GetReceipt);
             var receipt = new UC_Receipt(GetReceipt);
 
             this.Controls.Add(receipt);
@@ -242,6 +231,7 @@ public partial class View_Resturant : Form
             };
         }
     }
+    // Generate Code for Receipt
     public string GenerateReceiptCode()
     {
         string prefix = "REC";
@@ -270,11 +260,12 @@ public partial class View_Resturant : Form
             MessageBox.Show("Select items to cart before holding the order.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
+    // Reset All product Ordered
     private void ClearCurrentOrder()
     {
         Carts = new OrderReq();
-        InitProductTotal(GetOrder);
         panelCart.Controls.Clear();
+        UpdateLableTotalOrder(GetOrder);
     }
- 
+
 }

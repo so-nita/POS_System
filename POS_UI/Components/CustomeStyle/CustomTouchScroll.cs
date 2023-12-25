@@ -1,4 +1,4 @@
-﻿using POS_UI.Model.Constant;
+﻿using POS_UI.Constant;
 
 namespace POS_UI.Components.CustomeStyle;
 

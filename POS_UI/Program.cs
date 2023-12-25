@@ -13,16 +13,14 @@ namespace POS_UI
         {
             ApplicationConfiguration.Initialize();
 
-            Application.Run(new View_Resturant());
-            // Application.Run(new View_MainContainer());
+            //Application.Run(new View_Resturant());
+            Application.Run(new View_MainContainer());
 
             /*ExcelPackage.LicenseContext = LicenseContext.NonCommercial;  
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);*/
 
             //Application.Run(new Test());
-
-            
 
         }
         

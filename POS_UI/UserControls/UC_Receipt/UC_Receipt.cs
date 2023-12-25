@@ -1,4 +1,4 @@
-﻿using POS_UI.Model;
+﻿using POS_UI.Models.Receipt;
 
 namespace POS_UI.Test;
 

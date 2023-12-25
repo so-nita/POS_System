@@ -1,5 +1,5 @@
 ﻿using POS_UI.Components.CustomeStyle;
-using POS_UI.Model.Constant;
+using POS_UI.Constant;
 
 namespace POS_UI.View;
 
