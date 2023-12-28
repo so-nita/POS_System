@@ -5,6 +5,7 @@ namespace POS_WebAPI.Models.Response
     public class Response<T>
     {
         public int Status { get; set; }
+        public string? Message { get; set; }
         public int Total { get; set; }
         public T? Result { get; set; } = default;
 

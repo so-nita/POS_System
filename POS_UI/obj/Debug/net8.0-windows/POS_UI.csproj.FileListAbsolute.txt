@@ -9,7 +9,6 @@ D:\Work\Project\POS_System\POS_UI\bin\Debug\net8.0-windows\System.Management.dll
 D:\Work\Project\POS_System\POS_UI\bin\Debug\net8.0-windows\Bunifu.UI.WinForms.dll
 D:\Work\Project\POS_System\POS_UI\bin\Debug\net8.0-windows\Bunifu.UI.WinForms.1.5.3.dll
 D:\Work\Project\POS_System\POS_UI\bin\Debug\net8.0-windows\Microsoft.Bcl.AsyncInterfaces.dll
-D:\Work\Project\POS_System\POS_UI\bin\Debug\net8.0-windows\Microsoft.Extensions.ObjectPool.dll
 D:\Work\Project\POS_System\POS_UI\bin\Debug\net8.0-windows\Newtonsoft.Json.dll
 D:\Work\Project\POS_System\POS_UI\bin\Debug\net8.0-windows\ReaLTaiizor.dll
 D:\Work\Project\POS_System\POS_UI\bin\Debug\net8.0-windows\System.ComponentModel.Composition.dll
@@ -102,7 +101,6 @@ D:\Work\Project\POS_System\POS_UI\obj\Debug\net8.0-windows\refint\POS_UI.dll
 D:\Work\Project\POS_System\POS_UI\obj\Debug\net8.0-windows\POS_UI.pdb
 D:\Work\Project\POS_System\POS_UI\obj\Debug\net8.0-windows\POS_UI.genruntimeconfig.cache
 D:\Work\Project\POS_System\POS_UI\obj\Debug\net8.0-windows\ref\POS_UI.dll
-D:\Work\Project\POS_System\POS_UI\obj\Debug\net8.0-windows\POS_UI.View.View_MainContainer.resources
 D:\Work\Project\POS_System\POS_UI\obj\Debug\net8.0-windows\POS_UI.View_Product.resources
 D:\Work\Project\POS_System\POS_UI\obj\Debug\net8.0-windows\POS_UI.View.View_PosSubMenu.View_Resturant.resources
 D:\Work\Project\POS_System\POS_UI\obj\Debug\net8.0-windows\POS_UI.UserControls.UC_ProuductCard.resources
@@ -115,10 +113,12 @@ D:\Work\Project\POS_System\POS_UI\obj\Debug\net8.0-windows\POS_UI.UserControls.U
 D:\Work\Project\POS_System\POS_UI\obj\Debug\net8.0-windows\POS_UI.UserControls.CardItem.UC_Product_Price.resources
 D:\Work\Project\POS_System\POS_UI\obj\Debug\net8.0-windows\POS_UI.UserControls.UC_Mart.UC_ViewCard_Order.resources
 D:\Work\Project\POS_System\POS_UI\obj\Debug\net8.0-windows\POS_UI.UserControls.CardItem.UC_ProductSell.resources
-D:\Work\Project\POS_System\POS_UI\obj\Debug\net8.0-windows\POS_UI.View.Receipt.UC_ResturantReceipt.resources
 D:\Work\Project\POS_System\POS_UI\bin\Debug\net8.0-windows\EPPlus.dll
 D:\Work\Project\POS_System\POS_UI\bin\Debug\net8.0-windows\EPPlus.Interfaces.dll
 D:\Work\Project\POS_System\POS_UI\bin\Debug\net8.0-windows\EPPlus.System.Drawing.dll
+D:\Work\Project\POS_System\POS_UI\bin\Debug\net8.0-windows\Microsoft.IO.RecyclableMemoryStream.dll
+D:\Work\Project\POS_System\POS_UI\obj\Debug\net8.0-windows\POS_UI.UserControls.UC_Mart.UC_ViewCard_SubTotal.resources
+D:\Work\Project\POS_System\POS_UI\obj\Debug\net8.0-windows\POS_UI.Test.UC_Receipt.resources
 D:\Work\Project\POS_System\POS_UI\bin\Debug\net8.0-windows\Microsoft.Extensions.Configuration.dll
 D:\Work\Project\POS_System\POS_UI\bin\Debug\net8.0-windows\Microsoft.Extensions.Configuration.Abstractions.dll
 D:\Work\Project\POS_System\POS_UI\bin\Debug\net8.0-windows\Microsoft.Extensions.Configuration.FileExtensions.dll
@@ -126,6 +126,12 @@ D:\Work\Project\POS_System\POS_UI\bin\Debug\net8.0-windows\Microsoft.Extensions.
 D:\Work\Project\POS_System\POS_UI\bin\Debug\net8.0-windows\Microsoft.Extensions.FileProviders.Abstractions.dll
 D:\Work\Project\POS_System\POS_UI\bin\Debug\net8.0-windows\Microsoft.Extensions.FileProviders.Physical.dll
 D:\Work\Project\POS_System\POS_UI\bin\Debug\net8.0-windows\Microsoft.Extensions.FileSystemGlobbing.dll
+D:\Work\Project\POS_System\POS_UI\bin\Debug\net8.0-windows\Microsoft.Extensions.ObjectPool.dll
 D:\Work\Project\POS_System\POS_UI\bin\Debug\net8.0-windows\Microsoft.Extensions.Primitives.dll
-D:\Work\Project\POS_System\POS_UI\bin\Debug\net8.0-windows\Microsoft.IO.RecyclableMemoryStream.dll
-D:\Work\Project\POS_System\POS_UI\obj\Debug\net8.0-windows\POS_UI.UserControls.UC_Mart.UC_ViewCard_SubTotal.resources
+D:\Work\Project\POS_System\POS_UI\obj\Debug\net8.0-windows\POS_UI.Test.View_Main.resources
+D:\Work\Project\POS_System\POS_UI\obj\Debug\net8.0-windows\POS_UI.Test.View_MenuLeft.resources
+D:\Work\Project\POS_System\POS_UI\obj\Debug\net8.0-windows\POS_UI.View.View_MainContainer.resources
+D:\Work\Project\POS_System\POS_UI\obj\Debug\net8.0-windows\POS_UI.Test.View_MenuLeftAdmin.resources
+D:\Work\Project\POS_System\POS_UI\obj\Debug\net8.0-windows\Posprojrect.LoginForm.resources
+D:\Work\Project\POS_System\POS_UI\obj\Debug\net8.0-windows\POS_UI.Views.View_Reports.View_Report.resources
+D:\Work\Project\POS_System\POS_UI\obj\Debug\net8.0-windows\POS_UI.Views.View_Settings.View_Setting.resources

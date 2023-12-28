@@ -57,7 +57,7 @@
             // labelItemPrice
             // 
             labelItemPrice.AutoSize = true;
-            labelItemPrice.Font = new Font("Times New Roman", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            labelItemPrice.Font = new Font("Times New Roman", 9F);
             labelItemPrice.ForeColor = Color.Red;
             labelItemPrice.Location = new Point(7, 127);
             labelItemPrice.Name = "labelItemPrice";
@@ -68,7 +68,7 @@
             // lableItemName
             // 
             lableItemName.AutoSize = true;
-            lableItemName.Font = new Font("Times New Roman", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            lableItemName.Font = new Font("Times New Roman", 9F);
             lableItemName.Location = new Point(4, 109);
             lableItemName.Name = "lableItemName";
             lableItemName.Size = new Size(40, 15);
@@ -77,9 +77,9 @@
             // 
             // pictureItem
             // 
-            pictureItem.BackgroundImage = Properties.Resources.orio;
+            pictureItem.BackgroundImage = Properties.Resources.Food_img1;
             pictureItem.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureItem.Image = Properties.Resources.orio1;
+            pictureItem.Image = Properties.Resources.Food_img1;
             pictureItem.Location = new Point(0, 2);
             pictureItem.Name = "pictureItem";
             pictureItem.Size = new Size(120, 104);
@@ -93,7 +93,7 @@
             iconButton14.BackColor = Color.WhiteSmoke;
             iconButton14.FlatStyle = FlatStyle.Flat;
             iconButton14.ForeColor = Color.Gainsboro;
-            iconButton14.IconChar = FontAwesome.Sharp.IconChar.Add;
+            iconButton14.IconChar = FontAwesome.Sharp.IconChar.Plus;
             iconButton14.IconColor = Color.RoyalBlue;
             iconButton14.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconButton14.IconSize = 18;
@@ -107,7 +107,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.WhiteSmoke;
+            BackColor = Color.Transparent;
             Controls.Add(materialCardMart);
             Name = "UC_ViewCard";
             Size = new Size(142, 169);
@@ -121,7 +121,7 @@
 
         private ReaLTaiizor.Controls.MaterialCard materialCardMart;
         private FontAwesome.Sharp.IconButton iconButton14;
-        private Label label8;
+        //private Label label8;
         private Label labelItemPrice;
         private Label lableItemName;
         private PictureBox pictureItem;

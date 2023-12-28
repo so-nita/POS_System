@@ -1,4 +1,4 @@
-﻿using POS_UI.Model;
+﻿using POS_UI.Models.Product;
 using POS_UI.View;
 using POS_UI.View.View_PosSubMenu;
 using System;
@@ -15,17 +15,17 @@ namespace POS_UI.UserControls.CardItem
 {
     public partial class UC_ProductSell : UserControl
     {
-        private readonly Product _product;
+        private readonly ProductResponse _product;
         private readonly View_Store _rest;
 
-        public UC_ProductSell(Product product = null!, View_Store rest = null!)
+        public UC_ProductSell(ProductResponse product = null!, View_Store rest = null!)
         {
             InitializeComponent();
             _product = product;
             _rest = rest;
             InitData();
         }
-        public Product GetProduct => _product;
+        public ProductResponse GetProduct => _product;
 
         private void InitData()
         {

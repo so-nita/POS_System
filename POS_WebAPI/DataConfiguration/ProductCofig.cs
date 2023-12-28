@@ -56,6 +56,10 @@ public class ProductCofig : IEntityTypeConfiguration<Product>
         builder.Property(e => e.Price).IsRequired()
                                     .HasColumnType("decimal(8,2)");
 
+        builder.Property(e => e.Size).IsRequired(false)
+                                    .HasColumnType("varchar")
+                                    .HasMaxLength(255);
+
         builder.Property(e => e.Description).IsRequired(false)
                                     .HasColumnType("varchar")
                                     .HasMaxLength(255);

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using POS_WebAPI.Interface;
+using POS_WebAPI.Models.Constant;
 using POS_WebAPI.Models.RequestModel.User;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -9,7 +10,7 @@ using System.Text;
 
 namespace POS_WebAPI.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [ApiController]
     [Route("api/auth")]
     public class AuthController : Controller
@@ -45,6 +46,7 @@ namespace POS_WebAPI.Controllers
 
             return Ok(new { Token = generatedToken});
         }*/
+
         [HttpPost("login")]
         public IActionResult Login([FromBody] UserLoginReq request)
         {
@@ -54,7 +56,7 @@ namespace POS_WebAPI.Controllers
             {
                 return Unauthorized();
             }
-            var authorizationHeader = HttpContext.Request.Headers["Authorization"].FirstOrDefault();
+            /*var authorizationHeader = HttpContext.Request.Headers["Authorization"].FirstOrDefault();
 
             if (string.IsNullOrEmpty(authorizationHeader) || !authorizationHeader.StartsWith("Bearer"))
             {
@@ -69,7 +71,7 @@ namespace POS_WebAPI.Controllers
                 return Unauthorized("Invalid token");
             }
 
-            var generatedToken = GenerateJwtToken(userResponse.Result!, token);
+            var generatedToken = GenerateJwtToken(userResponse.Result!, token);*/
             return Ok(userResponse);
             //return Ok(new { Token = generatedToken });
         }
@@ -102,16 +104,27 @@ namespace POS_WebAPI.Controllers
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
 
-        [HttpGet]
-        public async Task<IActionResult> GetUserData()
+       /* [HttpGet]
+        public IActionResult GetUserData()
         {
-            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-            var user = _service.ReadAll();
+            var userId =  User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            var user =  _service.ReadAll();
             if (user == null)
             {
                 return NotFound();
             }
             return Ok(user);
+        }*/
+
+        [HttpPost]
+        public IActionResult Create([FromBody] UserCreateReq request)
+        {
+            var data = _service.Create(request);
+            if(data.Status != (int)ResponseStatus.Success)
+            {
+                return BadRequest(data);
+            }
+            return Ok(data);
         }
     }
 }

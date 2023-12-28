@@ -9,6 +9,8 @@ namespace POS_WebAPI.Models.RequestModel.Product
         public string Code { get; set; } = null!;
         public string Name { get; set; } = null!;
         public string? NameKh { get; set; }
+        public string? Create_By { get; set; }
+        public string? Create_By_Name { get; set; } 
         public string Company_Id { get; set; }= null!;
         public string Company_Name { get; set; } = null!;
         public string Sub_Category_Id { get; set; } = null!;
@@ -16,6 +18,7 @@ namespace POS_WebAPI.Models.RequestModel.Product
         public string? Image { get; set; }  
         public decimal Cost { get; set; }
         public decimal Price { get; set; }
+        public int Qty { get; set; }    
         public string? Description { get; set; }
         public DateTime Create_At { get; set; }
         public string Status { get; set; }=null!;

@@ -1,6 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Compile Update="Views\UI_LOGIN\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\View_MainView\View_Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\View_MainView\View_MenuLeftAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="UserControls\UC_Mart\UC_ViewCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -19,29 +28,29 @@
     <Compile Update="UserControls\UC_Resturant\UC_ProuductCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="View\View_PosSubMenu\View_Mart.cs">
+    <Compile Update="Views\View_PosSubMenu\view_Mart\View_Mart.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="View\View_PosSubMenu\View_Store\View_Store.cs">
+    <Compile Update="Views\View_PosSubMenu\View_Store\View_Store.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="View\View_Receipt\UC_ResturantReceipt.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="View\Test.cs">
+    <Compile Update="Views\Test.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="View\View_MainContainer.cs">
+    <Compile Update="Views\View_MainContainer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="View\View_PosSubMenu\View_Resturant.cs">
+    <Compile Update="Views\View_PosSubMenu\View_Resturant\View_Resturant.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="View\View_Product.cs">
+    <Compile Update="Views\View_Product.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="UserControls\UC_Resturant\UC_ProductForCart.cs">
       <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Views\View_Reports\View_Report.cs">
+      <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
 </Project>

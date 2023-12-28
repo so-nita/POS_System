@@ -7,11 +7,11 @@ namespace POS_WebAPI.Models.EntityModel
         public string Id { get; set; } = null!;
         public decimal Sub_Total { get; set; }
         public decimal Total_Discount { get; set; }
-        public decimal Total { get; set; }  
-        public int Total_Item { get; set; }
-        public string Company_Id { get; set; }=null!;
-        public string Section_Id { get; set;}=null!;
-        public string Reference_Id { get; set; } = null!; 
+        public decimal Grand_Total { get; set; }
+        public string Source_Id { get; set;}=null!;
+        public string Reference_Id { get; set; } = null!;
+        public string Company_Id { get; set; } = null!;
+        public decimal? Tax { get; set; } = 0;
         public DateTime Order_Date { get; set; }
         public OrderStatus Order_Status { get; set; }
         public bool? Is_Delete { get; set; }
@@ -20,6 +20,6 @@ namespace POS_WebAPI.Models.EntityModel
         public ICollection<Receipt>? Receipts { get; set; }
         public User? User { get; set; } = null!;
         public ICollection<OrderDetail>? OrderDetails { get; set; }
-        public Section? Section { get; set; }
+        public Source? Source { get; set; }
     }
 }

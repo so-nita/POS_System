@@ -10,10 +10,10 @@ namespace POS_WebAPI.Models.EntityModel
         public string? Size { get; set;} = string.Empty;
         public decimal Price { get; set;}
         public int Qty { get; set;}
-        public decimal? Discount { get; set;}
-        public decimal SubTotal { get; set;}
-        public decimal? Tax { get; set;} 
-        public decimal Total { get; set;}
+        public decimal? Discount_Percent { get; set;}
+        public decimal? Discount_Amount { get; set; }
+        public decimal Sub_Amount { get; set;}
+        public decimal Grand_Amount { get; set;}
         public DateTime Create_At { get; set; }
         // 
         public Order Order { get; set; } = null!;

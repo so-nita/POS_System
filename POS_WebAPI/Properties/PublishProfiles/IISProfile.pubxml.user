@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <History>True|2023-12-26T01:12:37.0226829Z;True|2023-12-22T17:23:43.4983345+07:00;True|2023-12-22T17:22:27.2096717+07:00;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="DefaultConnection">
+      <Value>server=TT-ITD-090\SQLEXPRESS%3bdatabase=POS%3bTrustServerCertificate=True%3bTrusted_Connection=True%3b</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+  <ItemGroup>
+    <EFMigrations Include="POS_WebAPI.DataContext.PosContext">
+      <Value>server=TT-ITD-090\SQLEXPRESS%3bdatabase=POS%3bTrustServerCertificate=True%3bTrusted_Connection=True%3b</Value>
+    </EFMigrations>
+  </ItemGroup>
+</Project>

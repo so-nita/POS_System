@@ -127,6 +127,9 @@ namespace POS_WebAPI.Migrations
                         .HasMaxLength(36)
                         .HasColumnType("varchar");
 
+                    b.Property<decimal>("Grand_Total")
+                        .HasColumnType("decimal(8,2)");
+
                     b.Property<bool?>("Is_Delete")
                         .IsRequired()
                         .HasColumnType("bit");
@@ -141,27 +144,24 @@ namespace POS_WebAPI.Migrations
                         .HasMaxLength(36)
                         .HasColumnType("varchar");
 
-                    b.Property<string>("Section_Id")
+                    b.Property<string>("Source_Id")
                         .HasMaxLength(36)
                         .HasColumnType("varchar");
 
                     b.Property<decimal>("Sub_Total")
                         .HasColumnType("decimal(8,2)");
 
-                    b.Property<decimal>("Total")
+                    b.Property<decimal?>("Tax")
                         .HasColumnType("decimal(8,2)");
 
                     b.Property<decimal>("Total_Discount")
                         .HasColumnType("decimal(8,2)");
 
-                    b.Property<int>("Total_Item")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.HasIndex("Reference_Id");
 
-                    b.HasIndex("Section_Id");
+                    b.HasIndex("Source_Id");
 
                     b.ToTable("Orders");
                 });
@@ -175,7 +175,13 @@ namespace POS_WebAPI.Migrations
                     b.Property<DateTime>("Create_At")
                         .HasColumnType("datetime");
 
-                    b.Property<decimal?>("Discount")
+                    b.Property<decimal?>("Discount_Amount")
+                        .HasColumnType("decimal(8,2)");
+
+                    b.Property<decimal?>("Discount_Percent")
+                        .HasColumnType("decimal(8,2)");
+
+                    b.Property<decimal>("Grand_Amount")
                         .HasColumnType("decimal(8,2)");
 
                     b.Property<string>("Order_Id")
@@ -203,13 +209,7 @@ namespace POS_WebAPI.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("varchar");
 
-                    b.Property<decimal>("SubTotal")
-                        .HasColumnType("decimal(8,2)");
-
-                    b.Property<decimal?>("Tax")
-                        .HasColumnType("decimal(8,2)");
-
-                    b.Property<decimal>("Total")
+                    b.Property<decimal>("Sub_Amount")
                         .HasColumnType("decimal(8,2)");
 
                     b.HasKey("Id");
@@ -284,6 +284,13 @@ namespace POS_WebAPI.Migrations
 
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(8,2)");
+
+                    b.Property<int>("Qty")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Size")
+                        .HasMaxLength(255)
+                        .HasColumnType("varchar");
 
                     b.Property<int>("Status")
                         .HasColumnType("int");
@@ -362,7 +369,7 @@ namespace POS_WebAPI.Migrations
                     b.ToTable("Roles");
                 });
 
-            modelBuilder.Entity("POS_WebAPI.Models.EntityModel.Section", b =>
+            modelBuilder.Entity("POS_WebAPI.Models.EntityModel.Source", b =>
                 {
                     b.Property<string>("Id")
                         .HasMaxLength(36)
@@ -388,7 +395,7 @@ namespace POS_WebAPI.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Section");
+                    b.ToTable("Sources");
                 });
 
             modelBuilder.Entity("POS_WebAPI.Models.EntityModel.SubCategory", b =>
@@ -504,7 +511,7 @@ namespace POS_WebAPI.Migrations
 
                     b.Property<string>("Password")
                         .IsRequired()
-                        .HasMaxLength(50)
+                        .HasMaxLength(100)
                         .HasColumnType("varchar");
 
                     b.Property<string>("Role_Id")
@@ -588,12 +595,12 @@ namespace POS_WebAPI.Migrations
                         .HasForeignKey("Reference_Id")
                         .OnDelete(DeleteBehavior.NoAction);
 
-                    b.HasOne("POS_WebAPI.Models.EntityModel.Section", "Section")
+                    b.HasOne("POS_WebAPI.Models.EntityModel.Source", "Source")
                         .WithMany("Orders")
-                        .HasForeignKey("Section_Id")
+                        .HasForeignKey("Source_Id")
                         .OnDelete(DeleteBehavior.NoAction);
 
-                    b.Navigation("Section");
+                    b.Navigation("Source");
 
                     b.Navigation("User");
                 });
@@ -721,7 +728,7 @@ namespace POS_WebAPI.Migrations
                     b.Navigation("Users");
                 });
 
-            modelBuilder.Entity("POS_WebAPI.Models.EntityModel.Section", b =>
+            modelBuilder.Entity("POS_WebAPI.Models.EntityModel.Source", b =>
                 {
                     b.Navigation("Orders");
                 });

@@ -18,7 +18,7 @@ namespace POS_WebAPI.DataContext
         public DbSet<OrderDetail> OrderDetails { get; set; }
         //public DbSet<Table> Tables { get; set; }
         public DbSet<Receipt> Receipts { get; set; }
-        public DbSet<Section> Section { get; set; }
+        public DbSet<Source> Sources { get; set; }
         public DbSet<UserLog> User_Logs { get; set; }
 
 
