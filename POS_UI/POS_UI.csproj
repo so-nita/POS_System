@@ -21,8 +21,15 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Update="Views\View_MainView\View_Main.cs" />
+    <Compile Update="Views\View_MainView\View_MenuLeft.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="UserControls\UC_Receipt\UC_Receipt.cs">
       <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Views\View_Settings\View_Setting.cs">
+      <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
 
@@ -35,10 +42,7 @@
 
   <ItemGroup>
     <Folder Include="Models\Transaction\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\POS_WebAPI\POS_WebAPI.csproj" />
+    <Folder Include="Test\" />
   </ItemGroup>
 
 </Project>

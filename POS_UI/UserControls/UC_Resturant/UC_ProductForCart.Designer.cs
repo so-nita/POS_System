@@ -84,16 +84,16 @@ partial class UC_ProductForCart
         // 
         btnAdd.BackColor = Color.White;
         btnAdd.BorderColor = Color.Transparent;
-        btnAdd.EnteredBorderColor = Color.FromArgb(165, 37, 37);
-        btnAdd.EnteredColor = Color.Red;
+        btnAdd.EnteredBorderColor = Color.White;
+        btnAdd.EnteredColor = Color.FromArgb(77, 136, 255);
         btnAdd.Font = new Font("Microsoft Sans Serif", 13.5F, FontStyle.Bold, GraphicsUnit.Point, 0);
         btnAdd.Image = null;
         btnAdd.ImageAlign = ContentAlignment.MiddleLeft;
         btnAdd.InactiveColor = Color.FromArgb(32, 34, 37);
         btnAdd.Location = new Point(286, 15);
         btnAdd.Name = "btnAdd";
-        btnAdd.PressedBorderColor = Color.FromArgb(165, 37, 37);
-        btnAdd.PressedColor = Color.FromArgb(165, 37, 37);
+        btnAdd.PressedBorderColor = Color.White;
+        btnAdd.PressedColor = Color.FromArgb(0, 89, 179);
         btnAdd.Size = new Size(25, 22);
         btnAdd.TabIndex = 4;
         btnAdd.Text = "+";
@@ -116,16 +116,16 @@ partial class UC_ProductForCart
         // 
         btnSubstract.BackColor = Color.White;
         btnSubstract.BorderColor = Color.White;
-        btnSubstract.EnteredBorderColor = Color.FromArgb(165, 37, 37);
-        btnSubstract.EnteredColor = Color.FromArgb(32, 34, 37);
+        btnSubstract.EnteredBorderColor = Color.White;
+        btnSubstract.EnteredColor = Color.FromArgb(77, 136, 255);
         btnSubstract.Font = new Font("Microsoft Sans Serif", 13.5F);
         btnSubstract.Image = null;
         btnSubstract.ImageAlign = ContentAlignment.MiddleLeft;
         btnSubstract.InactiveColor = Color.FromArgb(32, 34, 37);
         btnSubstract.Location = new Point(233, 15);
         btnSubstract.Name = "btnSubstract";
-        btnSubstract.PressedBorderColor = Color.FromArgb(165, 37, 37);
-        btnSubstract.PressedColor = Color.FromArgb(165, 37, 37);
+        btnSubstract.PressedBorderColor = Color.White;
+        btnSubstract.PressedColor = Color.FromArgb(0, 89, 179);
         btnSubstract.Size = new Size(25, 22);
         btnSubstract.TabIndex = 2;
         btnSubstract.Text = "−";

@@ -1,4 +1,4 @@
-﻿using POS_UI.Models.Response;
+﻿using POS_UI.Models.Responses;
 using POS_UI.Models.SubCategory;
 
 namespace POS_UI.Service;
@@ -11,4 +11,6 @@ public class SubCategoryService : BaseService
         var data = await GetAsync<Response<SubCategoryResponse>>(url);
         return data?.Result ?? new List<SubCategoryResponse>();
     }
+
+
 }

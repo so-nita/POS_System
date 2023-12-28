@@ -9,10 +9,6 @@
       {
         "name": "Microsoft.WindowsDesktop.App",
         "version": "8.0.0"
-      },
-      {
-        "name": "Microsoft.AspNetCore.App",
-        "version": "8.0.0"
       }
     ],
     "additionalProbingPaths": [
@@ -20,7 +16,6 @@
       "C:\\Users\\User\\.nuget\\packages"
     ],
     "configProperties": {
-      "System.Reflection.NullabilityInfoContext.IsSupported": true,
       "System.Runtime.Serialization.EnableUnsafeBinaryFormatterSerialization": true,
       "Microsoft.NETCore.DotNetHostPolicy.SetAppPaths": true
     }

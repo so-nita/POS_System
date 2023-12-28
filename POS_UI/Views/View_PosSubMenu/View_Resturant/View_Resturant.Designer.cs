@@ -33,7 +33,7 @@
             panelCategory = new FlowLayoutPanel();
             panelListProduct = new FlowLayoutPanel();
             panelOrderCart = new ReaLTaiizor.Controls.MaterialCard();
-            bunifuFlatButton1 = new Bunifu.Framework.UI.BunifuFlatButton();
+            btnPay = new Bunifu.Framework.UI.BunifuFlatButton();
             materialCard1 = new ReaLTaiizor.Controls.MaterialCard();
             lableDiscount = new ReaLTaiizor.Controls.BigLabel();
             lableTotal = new ReaLTaiizor.Controls.BigLabel();
@@ -87,6 +87,7 @@
             // panelCategory
             // 
             panelCategory.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panelCategory.AutoScroll = true;
             panelCategory.BackColor = Color.White;
             panelCategory.Location = new Point(2, 1);
             panelCategory.Name = "panelCategory";
@@ -97,6 +98,7 @@
             panelCategory.VerticalScroll.Maximum = 0;
             panelCategory.HorizontalScroll.Maximum = 0;
             panelCategory.AutoScroll = true;
+
             // 
             // panelListProduct
             // 
@@ -111,7 +113,7 @@
             // 
             panelOrderCart.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
             panelOrderCart.BackColor = Color.FromArgb(255, 255, 255);
-            panelOrderCart.Controls.Add(bunifuFlatButton1);
+            panelOrderCart.Controls.Add(btnPay);
             panelOrderCart.Controls.Add(materialCard1);
             panelOrderCart.Controls.Add(panelCart);
             panelOrderCart.Controls.Add(panel1);
@@ -125,41 +127,42 @@
             panelOrderCart.Size = new Size(354, 635);
             panelOrderCart.TabIndex = 0;
             // 
-            // bunifuFlatButton1
+            // btnPay
             // 
-            bunifuFlatButton1.Active = false;
-            bunifuFlatButton1.Activecolor = Color.FromArgb(0, 89, 179);
-            bunifuFlatButton1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            bunifuFlatButton1.BackColor = Color.FromArgb(77, 136, 255);
-            bunifuFlatButton1.BackgroundImageLayout = ImageLayout.Stretch;
-            bunifuFlatButton1.BorderRadius = 7;
-            bunifuFlatButton1.ButtonText = "  Pay Now";
-            bunifuFlatButton1.DisabledColor = Color.Gray;
-            bunifuFlatButton1.Iconcolor = Color.Transparent;
-            bunifuFlatButton1.Iconimage = Properties.Resources.icon_pay;
-            bunifuFlatButton1.Iconimage_right = null;
-            bunifuFlatButton1.Iconimage_right_Selected = null;
-            bunifuFlatButton1.Iconimage_Selected = null;
-            bunifuFlatButton1.IconMarginLeft = 100;
-            bunifuFlatButton1.IconMarginRight = 0;
-            bunifuFlatButton1.IconRightVisible = true;
-            bunifuFlatButton1.IconRightZoom = 0D;
-            bunifuFlatButton1.IconVisible = true;
-            bunifuFlatButton1.IconZoom = 55D;
-            bunifuFlatButton1.IsTab = false;
-            bunifuFlatButton1.Location = new Point(9, 581);
-            bunifuFlatButton1.Margin = new Padding(4, 3, 4, 3);
-            bunifuFlatButton1.Name = "bunifuFlatButton1";
-            bunifuFlatButton1.Normalcolor = Color.FromArgb(77, 136, 255);
-            bunifuFlatButton1.OnHovercolor = Color.FromArgb(0, 89, 179);
-            bunifuFlatButton1.OnHoverTextColor = Color.White;
-            bunifuFlatButton1.selected = false;
-            bunifuFlatButton1.Size = new Size(334, 50);
-            bunifuFlatButton1.TabIndex = 3;
-            bunifuFlatButton1.Text = "  Pay Now";
-            bunifuFlatButton1.TextAlign = ContentAlignment.MiddleLeft;
-            bunifuFlatButton1.Textcolor = Color.White;
-            bunifuFlatButton1.TextFont = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnPay.Active = false;
+            btnPay.Activecolor = Color.FromArgb(0, 89, 179);
+            btnPay.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnPay.BackColor = Color.FromArgb(77, 136, 255);
+            btnPay.BackgroundImageLayout = ImageLayout.Stretch;
+            btnPay.BorderRadius = 7;
+            btnPay.ButtonText = "  Pay Now";
+            btnPay.DisabledColor = Color.Gray;
+            btnPay.Iconcolor = Color.Transparent;
+            btnPay.Iconimage = Properties.Resources.icon_pay;
+            btnPay.Iconimage_right = null;
+            btnPay.Iconimage_right_Selected = null;
+            btnPay.Iconimage_Selected = null;
+            btnPay.IconMarginLeft = 100;
+            btnPay.IconMarginRight = 0;
+            btnPay.IconRightVisible = true;
+            btnPay.IconRightZoom = 0D;
+            btnPay.IconVisible = true;
+            btnPay.IconZoom = 55D;
+            btnPay.IsTab = false;
+            btnPay.Location = new Point(9, 581);
+            btnPay.Margin = new Padding(4, 3, 4, 3);
+            btnPay.Name = "btnPay";
+            btnPay.Normalcolor = Color.FromArgb(77, 136, 255);
+            btnPay.OnHovercolor = Color.FromArgb(0, 89, 179);
+            btnPay.OnHoverTextColor = Color.White;
+            btnPay.selected = false;
+            btnPay.Size = new Size(334, 50);
+            btnPay.TabIndex = 3;
+            btnPay.Text = "  Pay Now";
+            btnPay.TextAlign = ContentAlignment.MiddleLeft;
+            btnPay.Textcolor = Color.White;
+            btnPay.TextFont = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnPay.Click += BtnPay_Click;
             // 
             // materialCard1
             // 
@@ -422,7 +425,7 @@
         private Panel panel1;
         /*-- private Panel panelCart;*/
         private FlowLayoutPanel panelCart;
-        private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton1;
+        private Bunifu.Framework.UI.BunifuFlatButton btnPay;
         private ReaLTaiizor.Controls.MaterialCard materialCard1;
         private ReaLTaiizor.Controls.BigLabel bigLabel1;
         private ReaLTaiizor.Controls.BigLabel bigLabel2;

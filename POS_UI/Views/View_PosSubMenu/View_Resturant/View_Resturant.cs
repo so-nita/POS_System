@@ -8,9 +8,8 @@ using POS_UI.Models.SubCategory;
 using POS_UI.Service;
 using POS_UI.Test;
 using POS_UI.UserControls;
-using POS_WebAPI.EntityConfiguration;
 using ReaLTaiizor.Controls;
-using System.Collections.Generic;
+using System.Management;
 
 namespace POS_UI.View.View_PosSubMenu;
 
@@ -34,23 +33,27 @@ public partial class View_Resturant : Form
 
     public void AdjustPadding(int parentFormWidth)
     {
-        if (parentFormWidth > 1250)
+        if (parentFormWidth >= 1300)
         {
-            panelListProduct.Padding = new Padding(18,0,0,0);
+            panelListProduct.Padding = new Padding(15, 0, 0, 0);
+
         }
+        else { panelListProduct.Padding = new Padding(0); }
+        panelCategory.Padding = new Padding(0, 0, 30, 0);
     }
-    private void InitializeData()
+    private async void InitializeData()
     {
         productTouchScroll = new CustomTouchScroll(panelCategory, ScrollDirection.Horizontal);
         cartTouchScroll = new CustomTouchScroll(panelCart, ScrollDirection.Vertical);
 
-        LoadDataFromApiAsync();
+        await LoadDataFromApiAsync();
     }
-    
+
     private async Task LoadDataFromApiAsync()
     {
         var productService = new ProductService();
-        var products = await productService.GetAllAsync();
+        var productData = await productService.GetAllAsync();
+        var products = productData.Result!;
 
         var data = new SubCategoryService();
         var subCategories = await data.GetAllAsync();
@@ -129,7 +132,7 @@ public partial class View_Resturant : Form
         {
             if (control is UC_ProductForCart productForCart &&
                 productForCart != null &&
-                productForCart.GetProduct != null && 
+                productForCart.GetProduct != null &&
                 productForCart.GetProduct.ProductId == productId)
             {
                 productForCart.UpdateQuantityLabel();
@@ -198,7 +201,7 @@ public partial class View_Resturant : Form
         {
             decimal subTotal = Carts.OrderDetails.Sum(e => e.Price * e.Qty);
             decimal tax = (subTotal != 0) ? Carts.Tax * subTotal / 100 : 0.00m;
-            decimal total = (subTotal != 0) ? subTotal+tax : 0.00m;
+            decimal total = (subTotal != 0) ? subTotal + tax : 0.00m;
             return new OrderReq()
             {
                 SubTotal = subTotal,
@@ -268,4 +271,8 @@ public partial class View_Resturant : Form
         UpdateLableTotalOrder(GetOrder);
     }
 
+    private void BtnPay_Click(object sender, EventArgs e)
+    {
+
+    }
 }

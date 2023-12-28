@@ -12,13 +12,9 @@ public partial class View_MainContainer : Form
         InitializeComponent();
         CustomeDesign();
     }
-    
+
     public void AddController(Form form)
     {
-        /*if (this.centerPanel.Controls.Count > 1) 
-        {
-            this.centerPanel.Controls.Clear();
-        }*/
         this.centerPanel.Controls.Clear();
         form.TopLevel = false;
         form.Dock = DockStyle.Fill;
@@ -29,7 +25,7 @@ public partial class View_MainContainer : Form
     private void CustomeDesign()
     {
         panelSubMenuPOSView.Visible = false;
-
+        panelMenuLeft.Controls.Clear(); 
         CollapseMenu();
     }
     private void hideSubMenu()
@@ -59,17 +55,21 @@ public partial class View_MainContainer : Form
     private void btnSubMenuResturant_Click(object sender, EventArgs e)
     {
         hideSubMenu();
+        //_viewController.ShowResturantView();
         AddController(new View_Resturant());
     }
 
     private void btnSubMenuMart_Click(object sender, EventArgs e)
     {
         hideSubMenu();
+        //_viewController.ShowMartView();
         AddController(new View_Mart());
     }
+
     private void btnSubMenuStore_Click(object sender, EventArgs e)
     {
         hideSubMenu();
+        //_viewController.ShowStoreView();
         AddController(new View_Store());
     }
     #endregion

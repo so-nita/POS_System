@@ -1,6 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Compile Update="Views\UI_LOGIN\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\View_MainView\View_Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\View_MainView\View_MenuLeftAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="UserControls\UC_Mart\UC_ViewCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -39,6 +48,9 @@
     </Compile>
     <Compile Update="UserControls\UC_Resturant\UC_ProductForCart.cs">
       <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Views\View_Reports\View_Report.cs">
+      <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
 </Project>
