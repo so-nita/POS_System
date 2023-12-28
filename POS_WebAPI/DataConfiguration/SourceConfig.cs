@@ -1,13 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using POS_WebAPI.Models.Constant;
 using POS_WebAPI.Models.EntityModel;
 
 namespace POS_WebAPI.EntityConfiguration
 {
-    public class SectionConfig : IEntityTypeConfiguration<Section>
+    public class SourceConfig : IEntityTypeConfiguration<Source>
     {
-        public void Configure(EntityTypeBuilder<Section> builder)
+        public void Configure(EntityTypeBuilder<Source> builder)
         {
             builder.HasKey(x => x.Id);
 

@@ -33,7 +33,7 @@ namespace POS_WebAPI.EntityConfiguration
 
             builder.Property(e => e.Password).IsRequired()
                                         .HasColumnType("varchar")
-                                        .HasMaxLength(50);
+                                        .HasMaxLength(100);
 
             builder.Property(e => e.Contact).IsRequired()
                                         .HasColumnType("varchar")

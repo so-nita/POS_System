@@ -18,6 +18,8 @@ public class Product
     public string? Image { get; set; } = null!;
     public decimal Cost { get; set; }
     public decimal Price { get; set; }
+    public int Qty { get; set; } =0;
+    public string? Size { get; set; }
     public string? Description { get; set; }
     public DateTime Create_At { get; set; }
     public DateTime? Last_Update { get; set; }

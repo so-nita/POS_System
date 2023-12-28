@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <_PublishTargetUrl>D:\Hosting\Test</_PublishTargetUrl>
+    <History>True|2023-12-28T08:51:48.7518565Z;True|2023-12-28T15:45:03.6026841+07:00;True|2023-12-28T15:43:23.2667964+07:00;True|2023-12-28T15:42:57.1357781+07:00;True|2023-12-28T15:42:14.7214133+07:00;True|2023-12-26T08:25:12.1959365+07:00;True|2023-12-26T08:13:25.7921722+07:00;</History>
+    <LastFailureDetails />
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+  </PropertyGroup>
+</Project>

@@ -32,11 +32,11 @@ builder.Services.AddScoped<ICompanyService, CompanyService>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<ISubCategoryService, SubCategoryService>();
 builder.Services.AddScoped<IUserService, UserService>();
-
+builder.Services.AddScoped<IOrderService, OrderService>();
 
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
-var jwtSettings = builder.Configuration.GetSection("AppSettings:Jwt");
+/*var jwtSettings = builder.Configuration.GetSection("AppSettings:Jwt");
 var secretKey = jwtSettings["SecretKey"];
 var issuer = jwtSettings["Issuer"];
 var audience = jwtSettings["Audience"];
@@ -57,8 +57,7 @@ builder.Services.AddAuthentication(options =>
         ValidAudience = audience,
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey!))
     };
-});
-
+});*/
 
 
 var app = builder.Build();
@@ -69,6 +68,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+ 
 
 app.UseHttpsRedirection();
 

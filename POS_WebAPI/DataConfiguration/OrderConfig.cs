@@ -20,7 +20,7 @@ namespace POS_WebAPI.EntityConfiguration
                                                 .HasColumnType("varchar")
                                                 .HasMaxLength(36); 
 
-            builder.Property(e => e.Section_Id).IsRequired(false)
+            builder.Property(e => e.Source_Id).IsRequired(false)
                                                 .HasColumnType("varchar")
                                                 .HasMaxLength(36);
 
@@ -28,13 +28,12 @@ namespace POS_WebAPI.EntityConfiguration
                                                 .HasColumnType("varchar")
                                                 .HasMaxLength(36);
 
-            builder.Property(e => e.Total_Item).IsRequired()
-                                                .HasColumnType("int");
+            builder.Property(e => e.Tax).IsRequired(false).HasColumnType("decimal(8,2)");
 
             builder.Property(e => e.Total_Discount).IsRequired()
                                                 .HasColumnType("decimal(8,2)");
 
-            builder.Property(e => e.Total).IsRequired().HasColumnType("decimal(8,2)");
+            builder.Property(e => e.Grand_Total).IsRequired().HasColumnType("decimal(8,2)");
 
             builder.Property(e => e.Sub_Total).IsRequired()
                                                 .HasColumnType("decimal(8,2)");
@@ -49,9 +48,9 @@ namespace POS_WebAPI.EntityConfiguration
                                                 .HasColumnType("bit");
 
             // section
-            builder.HasOne(e => e.Section)
+            builder.HasOne(e => e.Source)
                    .WithMany(e => e.Orders)
-                   .HasForeignKey(x => x.Section_Id)
+                   .HasForeignKey(x => x.Source_Id)
                    .OnDelete(DeleteBehavior.NoAction);
 
             builder.HasOne(e => e.User)

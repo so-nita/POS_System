@@ -36,16 +36,16 @@ namespace POS_WebAPI.EntityConfiguration
             builder.Property(e => e.Qty).IsRequired()
                                         .HasColumnType("int");
 
-            builder.Property(e => e.SubTotal).IsRequired()
+            builder.Property(e => e.Sub_Amount).IsRequired()
                                         .HasColumnType("decimal(8,2)");
 
-            builder.Property(e => e.Discount).IsRequired(false)
+            builder.Property(e => e.Discount_Percent).IsRequired(false)
                                         .HasColumnType("decimal(8,2)");
 
-            builder.Property(e => e.Tax).IsRequired(false)
+            builder.Property(e => e.Discount_Amount).IsRequired(false)
                                         .HasColumnType("decimal(8,2)");
 
-            builder.Property(e => e.Total).IsRequired()
+            builder.Property(e => e.Grand_Amount).IsRequired()
                                         .HasColumnType("decimal(8,2)");
 
             builder.Property(e => e.Create_At).IsRequired()
