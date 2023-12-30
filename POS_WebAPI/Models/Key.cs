@@ -2,6 +2,7 @@
 {
     public class Key
     {
-        public string Id { get; set; } = "";
+        public string? Id { get; set; }  
+        public string? Code { get; set; }
     }
 }

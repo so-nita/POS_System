@@ -9,7 +9,6 @@ public class ProductUpdateReq : IUpdateReq
     public string? Code { get; set; } = null!;
     public string? Name { get; set; } = null!;
     public string? NameKh { get; set; } = null!;
-    public string? Company { get; set; } = null!;
     public string? SubCategory { get; set; } = null!;
     public string? Image { get; set; } = null!;
     public decimal? Cost { get; set; }

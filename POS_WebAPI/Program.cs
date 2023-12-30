@@ -7,9 +7,6 @@ using POS_WebAPI.Repository;
 using POS_WebAPI.Services;
 using System.Reflection;
 using POS_WebAPI.Interface.ISubCategory;
-using Microsoft.IdentityModel.Tokens;
-using System.Text;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
@@ -33,6 +30,7 @@ builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<ISubCategoryService, SubCategoryService>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IOrderService, OrderService>();
+builder.Services.AddScoped<IReceitpService, ReceiptService>();
 
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 

@@ -1,6 +1,7 @@
 ﻿using POS_WebAPI.Interface;
 using POS_WebAPI.Models.Constant;
 using POS_WebAPI.Models.EntityModel;
+using POS_WebAPI.Models.RequestModel.Order.OrderDetail;
 
 namespace POS_WebAPI.Models.RequestModel.Order;
 

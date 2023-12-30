@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using Azure.Core;
 using Microsoft.EntityFrameworkCore;
 using POS_WebAPI.DataValidation;
 using POS_WebAPI.Interface;

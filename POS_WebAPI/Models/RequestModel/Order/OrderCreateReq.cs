@@ -1,6 +1,5 @@
 ﻿using POS_WebAPI.Interface;
 using POS_WebAPI.Models.Constant;
-using POS_WebAPI.Models.EntityModel;
 
 namespace POS_WebAPI.Models.RequestModel.Order;
 
@@ -17,7 +16,5 @@ public class OrderDetailCreateReq
 {
     public string Product_Id { get; set; } = "";
     public decimal? Discount_Percent { get; set; }
-    public decimal? Discount_Amount { get; set; }
-
     public int Qty { get; set; }    
 }

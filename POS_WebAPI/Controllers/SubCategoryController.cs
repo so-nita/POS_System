@@ -23,7 +23,7 @@ namespace POS_WebAPI.Controllers
         public IActionResult ReadAll()
         {
             var data = _service.ReadAll();
-            if (data.Status != (int)ResponseStatus.Success)
+            if (data!.Status != (int)ResponseStatus.Success)
             {
                 return BadRequest(data);
             }

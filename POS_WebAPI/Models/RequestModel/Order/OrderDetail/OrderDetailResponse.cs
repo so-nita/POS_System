@@ -1,4 +1,4 @@
-﻿namespace POS_WebAPI.Models.RequestModel.Order
+﻿namespace POS_WebAPI.Models.RequestModel.Order.OrderDetail
 {
     public class OrderDetailResponse
     {

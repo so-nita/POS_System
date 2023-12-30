@@ -3,6 +3,7 @@ using POS_WebAPI.Interface;
 using POS_WebAPI.Models;
 using POS_WebAPI.Models.Constant;
 using POS_WebAPI.Models.RequestModel.Order;
+using POS_WebAPI.Services;
 
 namespace POS_WebAPI.Controllers
 {
@@ -42,7 +43,7 @@ namespace POS_WebAPI.Controllers
         [HttpPut]
         public IActionResult Put([FromBody] OrderUpdateReq request)
         {
-            var data = _service.ReadAll();
+            var data = _service.Update(request);
             if (data!.Status != (int)ResponseStatus.Success)
             {
                 return BadRequest(data);
@@ -51,7 +52,7 @@ namespace POS_WebAPI.Controllers
         }
 
         [HttpDelete]
-        public IActionResult Delete([FromBody] Key key)
+        public IActionResult Delete([FromBody] OrderDeleteReq key)
         {
             var data = _service.Delete(key);
             if (data!.Status != (int)ResponseStatus.Success)
